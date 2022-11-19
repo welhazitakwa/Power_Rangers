@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/welhazitakwa/Power_Rangers/issues"
   },
-  "homepage": "https://github.com/welhazitakwa/Power_Rangers#readme"
+  "homepage": "https://github.com/welhazitakwa/Power_Rangers#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
