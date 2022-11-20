@@ -39,6 +39,17 @@ app.post("/municipalites",(req:Request,resp:Response)=>{
 
 
 
+/*************************put***************************/
+
+app.put("/municipalites/:id",(req:Request,resp:Response)=>{
+    let municipalite = Municipalite.findByIdAndUpdate(req.params.id,req.body,(err:any)=>{
+        if(err) resp.status(500).send(err)
+        else resp.send(" municipalite update")
+    })
+});
+
+
+
 app.get("/" , (req,resp)=>{
     resp.send("hello express")
 });

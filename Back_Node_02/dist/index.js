@@ -35,6 +35,15 @@ app.post("/municipalites", function (req, resp) {
             resp.send(municipalite);
     });
 });
+/*************************put***************************/
+app.put("/municipalites/:id", function (req, resp) {
+    var municipalite = municipalite_model_1["default"].findByIdAndUpdate(req.params.id, req.body, function (err) {
+        if (err)
+            resp.status(500).send(err);
+        else
+            resp.send(" municipalite update");
+    });
+});
 app.get("/", function (req, resp) {
     resp.send("hello express");
 });
