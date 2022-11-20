@@ -81,7 +81,7 @@ app.get("/municipalitesSearch", function (req, res) {
     var search = req.query.search || '';
     var page = parseInt(((_a = req.query.page) === null || _a === void 0 ? void 0 : _a.toString()) || '1');
     var size = parseInt(((_b = req.query.size) === null || _b === void 0 ? void 0 : _b.toString()) || '5');
-    municipalite_model_1["default"].paginate({ title: { $regex: ".*(?i)" + search + ".*" } }, { page: page, limit: size }, function (err, municipalites) {
+    municipalite_model_1["default"].paginate({ nameMunicipalite: { $regex: ".*(?i)" + search + ".*" } }, { page: page, limit: size }, function (err, municipalites) {
         if (err)
             res.status(500).send(err);
         else

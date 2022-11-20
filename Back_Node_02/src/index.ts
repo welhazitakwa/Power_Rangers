@@ -95,7 +95,7 @@ app.get("/municipalitesSearch",(req:Request,res:Response)=>{
     const page:number = parseInt(req.query.page?.toString()||'1');
     const size:number = parseInt(req.query.size?.toString()||'5');
 
-    Municipalite.paginate({title:{$regex:".*(?i)"+search+".*"}},{page:page,limit:size},(err:any,municipalites:any)=>{
+    Municipalite.paginate({nameMunicipalite:{$regex:".*(?i)"+search+".*"}},{page:page,limit:size},(err:any,municipalites:any)=>{
         if(err) res.status(500).send(err);
         else res.send(municipalites);
     });
