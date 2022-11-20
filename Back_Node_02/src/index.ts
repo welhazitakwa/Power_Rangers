@@ -144,6 +144,34 @@ app.delete('/chiens/:id',(req:Request,res:Response)=>{
     })
 })
 /************************************************** */
+/****************************page***********************/
+
+
+app.get("/chiensParPage",(req:Request,res:Response)=>{
+    const page:number = parseInt(req.query.page?.toString()||'1');
+    const size:number = parseInt(req.query.size?.toString()||'2');
+
+    Chien.paginate({},{page:page,limit:size},(err:any,chiens:any)=>{
+        if(err) res.status(500).send(err);
+        else res.send(chiens);
+    });
+
+});
+
+
+/********************************search******************/
+
+app.get("/chiensSearch",(req:Request,res:Response)=>{
+    const search = req.query.search || '';
+    const page:number = parseInt(req.query.page?.toString()||'1');
+    const size:number = parseInt(req.query.size?.toString()||'2');
+
+    Chien.paginate({nameChien:{$regex:".*(?i)"+search+".*"}},{page:page,limit:size},(err:any,chiens:any)=>{
+        if(err) res.status(500).send(err);
+        else res.send(chiens);
+    });
+    
+});
 
 
 
