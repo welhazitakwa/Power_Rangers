@@ -9,7 +9,8 @@ var utilisateurSchema = new mongoose_1["default"].Schema({
     nomUtilisateur: { type: String, required: true },
     prenomUtilisateur: { type: String, required: true },
     ncinUtilisateur: { type: Number, required: true },
-    mailUtilisateur: { type: String, required: true }
+    mailUtilisateur: { type: String, required: true },
+    passwordUtilisateur: { type: String, required: true }
 });
 utilisateurSchema.plugin(mongoose_paginate_1["default"]);
 var Utilisateur = mongoose_1["default"].model("Utilisateur", utilisateurSchema);
