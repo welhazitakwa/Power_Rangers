@@ -136,6 +136,31 @@ app["delete"]('/chiens/:id', function (req, res) {
     });
 });
 /************************************************** */
+/****************************page***********************/
+app.get("/chiensParPage", function (req, res) {
+    var _a, _b;
+    var page = parseInt(((_a = req.query.page) === null || _a === void 0 ? void 0 : _a.toString()) || '1');
+    var size = parseInt(((_b = req.query.size) === null || _b === void 0 ? void 0 : _b.toString()) || '2');
+    chien_model_1["default"].paginate({}, { page: page, limit: size }, function (err, chiens) {
+        if (err)
+            res.status(500).send(err);
+        else
+            res.send(chiens);
+    });
+});
+/********************************search******************/
+app.get("/chiensSearch", function (req, res) {
+    var _a, _b;
+    var search = req.query.search || '';
+    var page = parseInt(((_a = req.query.page) === null || _a === void 0 ? void 0 : _a.toString()) || '1');
+    var size = parseInt(((_b = req.query.size) === null || _b === void 0 ? void 0 : _b.toString()) || '2');
+    chien_model_1["default"].paginate({ nameChien: { $regex: ".*(?i)" + search + ".*" } }, { page: page, limit: size }, function (err, chiens) {
+        if (err)
+            res.status(500).send(err);
+        else
+            res.send(chiens);
+    });
+});
 /*********************************************************************************************************************************************************************************************** */
 app.get("/", function (req, resp) {
     resp.send("hello express");
