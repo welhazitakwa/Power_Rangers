@@ -6,6 +6,7 @@ exports.__esModule = true;
 var mongoose_1 = __importDefault(require("mongoose"));
 var mongoose_paginate_1 = __importDefault(require("mongoose-paginate"));
 var chienSchema = new mongoose_1["default"].Schema({
+    nameChien: { type: String, required: true },
     gender: { type: String, required: true },
     color: { type: String, required: true },
     age: { type: Number, required: true },

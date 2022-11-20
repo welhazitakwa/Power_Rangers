@@ -1,5 +1,7 @@
 import  express, {Request,Response} from "express";
 import Municipalite from "./municipalite.model";
+
+import Chien from "./chien.model";
 import mongoose from "mongoose";
 import bodyParser from "body-parser"
 
@@ -99,11 +101,55 @@ app.get("/municipalitesSearch",(req:Request,res:Response)=>{
     });
     
 });
+/************************************************************************************************************************************************************************************ */
+
+
+/************************************************ */
+app.post("/chiens",(req:Request,resp:Response)=>{
+    let chien = new Chien(req.body)
+    chien.save(err=>{
+      if (err) resp.status(500).send(err)
+      else resp.send(chien);
+  
+    })
+  });
+/************************************************ */
+app.get("/chiens",(req:Request,resp:Response)=>{
+    Chien.find((err,chiens)=>{
+       if (err) resp.status(500).send(err);
+       else resp.send(chiens);
+      
+    });
+   });
+/************************************************** */
+app.get("/chiens/:id",(req:Request,res:Response)=>{
+    Chien.findById(req.params.id,(err:any,chien: any)=>{
+        if (err) res.status(500).send(err);
+        else res.send(chien);
+    })
+})
+/*************************************************** */
+app.put("/chiens/:id",(req:Request,resp:Response)=>{
+    Chien.findByIdAndUpdate(req.params.id,req.body,(err: any)=>{
+        if(err) resp.status(500).send(err);
+        else resp.send("Dog updated succeslully");
+    })
+
+});
+/************************************************** */
+app.delete('/chiens/:id',(req:Request,res:Response)=>{
+    Chien.findByIdAndDelete(req.params.id,(err:any)=>{
+        if (err) return res.status(500).send(err);
+        else res.send("Dog deleted");
+    })
+})
+/************************************************** */
 
 
 
 
 
+/*********************************************************************************************************************************************************************************************** */
 app.get("/" , (req,resp)=>{
     resp.send("hello express")
 });

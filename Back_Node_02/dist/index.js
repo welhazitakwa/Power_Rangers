@@ -5,6 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 exports.__esModule = true;
 var express_1 = __importDefault(require("express"));
 var municipalite_model_1 = __importDefault(require("./municipalite.model"));
+var chien_model_1 = __importDefault(require("./chien.model"));
 var mongoose_1 = __importDefault(require("mongoose"));
 var body_parser_1 = __importDefault(require("body-parser"));
 var app = (0, express_1["default"])();
@@ -87,6 +88,55 @@ app.get("/municipalitesSearch", function (req, res) {
             res.send(municipalites);
     });
 });
+/************************************************************************************************************************************************************************************ */
+/************************************************ */
+app.post("/chiens", function (req, resp) {
+    var chien = new chien_model_1["default"](req.body);
+    chien.save(function (err) {
+        if (err)
+            resp.status(500).send(err);
+        else
+            resp.send(chien);
+    });
+});
+/************************************************ */
+app.get("/chiens", function (req, resp) {
+    chien_model_1["default"].find(function (err, chiens) {
+        if (err)
+            resp.status(500).send(err);
+        else
+            resp.send(chiens);
+    });
+});
+/************************************************** */
+app.get("/chiens/:id", function (req, res) {
+    chien_model_1["default"].findById(req.params.id, function (err, chien) {
+        if (err)
+            res.status(500).send(err);
+        else
+            res.send(chien);
+    });
+});
+/*************************************************** */
+app.put("/chiens/:id", function (req, resp) {
+    chien_model_1["default"].findByIdAndUpdate(req.params.id, req.body, function (err) {
+        if (err)
+            resp.status(500).send(err);
+        else
+            resp.send("Dog updated succeslully");
+    });
+});
+/************************************************** */
+app["delete"]('/chiens/:id', function (req, res) {
+    chien_model_1["default"].findByIdAndDelete(req.params.id, function (err) {
+        if (err)
+            return res.status(500).send(err);
+        else
+            res.send("Dog deleted");
+    });
+});
+/************************************************** */
+/*********************************************************************************************************************************************************************************************** */
 app.get("/", function (req, resp) {
     resp.send("hello express");
 });

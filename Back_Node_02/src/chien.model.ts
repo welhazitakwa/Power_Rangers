@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 import mongoosePaginate from "mongoose-paginate"
 
 let chienSchema = new mongoose.Schema({
+    nameChien : {type:String , required:true},
     gender : {type:String , required:true},
     color:{type:String, required:true},
     age:{type:Number, required:true},
