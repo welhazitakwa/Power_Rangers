@@ -62,6 +62,31 @@ app["delete"]("/municipalites/:id", function (req, resp) {
             resp.send("Municipalite deleted");
     });
 });
+/****************************page***********************/
+app.get("/municipalitesParPage", function (req, res) {
+    var _a, _b;
+    var page = parseInt(((_a = req.query.page) === null || _a === void 0 ? void 0 : _a.toString()) || '1');
+    var size = parseInt(((_b = req.query.size) === null || _b === void 0 ? void 0 : _b.toString()) || '5');
+    municipalite_model_1["default"].paginate({}, { page: page, limit: size }, function (err, municipalites) {
+        if (err)
+            res.status(500).send(err);
+        else
+            res.send(municipalites);
+    });
+});
+/********************************search******************/
+app.get("/municipalitesSearch", function (req, res) {
+    var _a, _b;
+    var search = req.query.search || '';
+    var page = parseInt(((_a = req.query.page) === null || _a === void 0 ? void 0 : _a.toString()) || '1');
+    var size = parseInt(((_b = req.query.size) === null || _b === void 0 ? void 0 : _b.toString()) || '5');
+    municipalite_model_1["default"].paginate({ title: { $regex: ".*(?i)" + search + ".*" } }, { page: page, limit: size }, function (err, municipalites) {
+        if (err)
+            res.status(500).send(err);
+        else
+            res.send(municipalites);
+    });
+});
 app.get("/", function (req, resp) {
     resp.send("hello express");
 });
