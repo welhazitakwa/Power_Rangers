@@ -1,9 +1,11 @@
 
 const mongoose = require ('mongoose');
 const express = require('express');
+const bodyParser = require('body-parser')
 const utilisateurRouter = require('./routes/utilisateurs')
 
 const app = express();
+
 
 mongoose.connect('mongodb://localhost:27017/Power_Rangers',
   { useNewUrlParser: true,
@@ -13,6 +15,7 @@ mongoose.connect('mongodb://localhost:27017/Power_Rangers',
   .catch(() => console.log('Connection failed to MongoDB !'));
 
   app.use(express.json());
+  app.use(bodyParser.json());
   app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
