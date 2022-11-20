@@ -44,6 +44,24 @@ app.put("/municipalites/:id", function (req, resp) {
             resp.send(" municipalite update");
     });
 });
+/************************get id*************************/
+app.get("/municipalites/:id", function (req, resp) {
+    municipalite_model_1["default"].findById(req.params.id, function (err, municipalite) {
+        if (err)
+            resp.status(500).send(err);
+        else
+            resp.send(municipalite);
+    });
+});
+/***********************delete*************************/
+app["delete"]("/municipalites/:id", function (req, resp) {
+    municipalite_model_1["default"].findByIdAndDelete(req.params.id, function (err) {
+        if (err)
+            resp.status(500).send(err);
+        else
+            resp.send("Municipalite deleted");
+    });
+});
 app.get("/", function (req, resp) {
     resp.send("hello express");
 });

@@ -50,6 +50,28 @@ app.put("/municipalites/:id",(req:Request,resp:Response)=>{
 
 
 
+/************************get id*************************/
+
+
+app.get("/municipalites/:id",(req:Request,resp:Response)=>{
+    Municipalite.findById(req.params.id,(err:any,municipalite:any)=>{
+        if(err) resp.status(500).send(err)
+        else resp.send(municipalite);
+
+    })
+});
+
+/***********************delete*************************/
+
+app.delete("/municipalites/:id",(req:Request,resp:Response)=>{
+    Municipalite.findByIdAndDelete(req.params.id,(err:any)=>{
+        if(err) resp.status(500).send(err)
+        else resp.send("Municipalite deleted")
+    })
+});
+
+
+
 app.get("/" , (req,resp)=>{
     resp.send("hello express")
 });
