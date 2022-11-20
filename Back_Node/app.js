@@ -1,6 +1,7 @@
-const mongoose = require ('mongoose');
 
+const mongoose = require ('mongoose');
 const express = require('express');
+const utilisateurRouter = require('./routes/utilisateurs')
 
 const app = express();
 
@@ -24,4 +25,6 @@ app.get((req,res)=>{
     res.json('Hello World');
 })
 */ 
+app.use('/utilisateurs', utilisateurRouter);
+
 module.exports = app;
