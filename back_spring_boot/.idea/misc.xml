@@ -8,6 +8,7 @@
         <option value="$PROJECT_DIR$/common/dog-service/pom.xml" />
         <option value="$PROJECT_DIR$/common/dogCategories-service/pom.xml" />
         <option value="$PROJECT_DIR$/config-server/pom.xml" />
+        <option value="$PROJECT_DIR$/eureka-server/pom.xml" />
       </list>
     </option>
   </component>
