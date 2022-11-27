@@ -62,11 +62,7 @@ export class AddChienComponent implements OnInit {
     }
   }
 
-  removemunicipalite(){
-
-  }
-
-
+  
   
 
 

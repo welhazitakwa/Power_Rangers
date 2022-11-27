@@ -11,47 +11,80 @@
             <div class="card-header bg-white border-0">
               <div class="row align-items-center">
                 <div class="col-8">
-                  <h3 class="mb-0">Ajouter Municipalités</h3>
+                  <h3 class="mb-0">Ajouter Chiens</h3>
                 </div>
               </div>
             </div>
             <div class="card-body">
-              <form>
-                <div class="pl-lg-4">
-                  <div class="row">
-                    <div class="col-lg-6">
-                      <div class="form-group">
-                        <label class="form-control-label" for="nameChien">Nom de chien</label>
-                        <input type="text" id="nameChien" 
-                        class="form-control form-control-alternative" 
-                        placeholder="Entrez le nom"
-                        required 
-                        name="nameChien">
+                <form>
+
+
+
+                    <div class="pl-lg-4">
+                      <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                              <label class="form-control-label" for="nom">Nom de chien</label>
+                              <input type="text" id="nom" class="form-control form-control-alternative"
+                               placeholder="Nom"
+                               [(ngModel)]="chien.nameChien" >
+                            </div>
+                          </div>
+                        <div class="col-lg-6">
+                          <div class="form-group">
+                            <label class="form-control-label" for="state">Etat Sanitaire</label>
+                            <input type="text" id="state" class="form-control form-control-alternative"
+                             placeholder="Etat Sanitaire"
+                             [(ngModel)]="chien.state" >
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-lg-6">
-                      <div class="form-group">
-                        <label class="form-control-label" for="gender"> Gender</label>
-                        <input type="text" 
-                        id="gender" 
-                        class="form-control form-control-alternative" 
-                        placeholder="Entrez une Localisation"
-                        required 
-                        name="gender"
-                        >
+                    
+                    <div class="pl-lg-4">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label class="form-control-label" for="image">Image</label>
+                            <input id="image" class="form-control form-control-alternative" placeholder="Image" type="text" [(ngModel)]="chien.image">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-lg-4">
+                          <div class="form-group">
+                            <label class="form-control-label" for="gender">Genre</label>
+                            <input type="text" id="gender" class="form-control form-control-alternative" placeholder="Genre" [(ngModel)]="chien.gender" >
+                          </div>
+                        </div>
+                        <div class="col-lg-4">
+                          <div class="form-group">
+                            <label class="form-control-label" for="color">Couleur</label>
+                            <input type="text" id="color" class="form-control form-control-alternative" placeholder="Couleur" [(ngModel)]="chien.color" >
+                          </div>
+                        </div>
+                        <div class="col-lg-4">
+                          <div class="form-group">
+                            <label class="form-control-label" for="age">Age</label>
+                            <input type="number" id="age" class="form-control form-control-alternative" placeholder="age" [(ngModel)]="chien.age">
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  
-                  </div>
-                </div>
-                <hr class="my-4" />
-                <!-- Address -->
-                
-                <!-- Description -->
-              <a routerLink="/tables"><button (click)="savechien()" type="submit" class="btn btn-primary ">Ajouter</button></a>
-              </form>
+                    <hr class="my-4" />
+                    <!-- Description -->
+                    
+                    <div class="pl-lg-4">
+                      <div class="form-group">
+                        <label>Description</label>
+                        <textarea rows="4" class="form-control form-control-alternative" 
+                        placeholder="A few words about you the dog ..."
+                        [(ngModel)]="chien.description"></textarea>
+                      </div>
+                    </div>
+                    <a routerLink="/tables"><button (click)="savechien()" type="submit" class="btn btn-primary ">Ajouter</button></a>
+          
+                  </form>
             </div>
           </div>
         </div>
