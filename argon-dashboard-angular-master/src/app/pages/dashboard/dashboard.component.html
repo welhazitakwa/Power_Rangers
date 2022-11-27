@@ -3,8 +3,8 @@
 <div class="container-fluid mt--7">
   <div class="row">
     
-   <div class="row mt-5">
-    <div class="col-xl-8 mb-5 mb-xl-0">
+   <div class="row mt-11">
+    <div class="col-xl-10 mb-5 mb-xl-5">
       <div class="card shadow">
         <div class="card-header border-0">
           <div class="row align-items-center">
@@ -12,7 +12,7 @@
               <h3 class="mb-0">Municipalités</h3>
             </div>
             <div class="col text-right">
-             <a routerLink="/add-municipalite" class="btn btn-sm btn-primary">See all</a>
+             <a routerLink="/add-municipalite" class="btn btn-sm btn-outline-primary">Ajouter</a>
             </div>
           </div>
         </div>
@@ -43,7 +43,7 @@
                   <!--<button type="button" class="btn btn-outline-success" [routerLink]="['/update-municipalite',,municipalite._id]">>Edit</button>-->
                   <a class="btn btn-outline-success" 
                     [routerLink]="['/update-municipalite',municipalite._id]">Modifier</a>
-                  <button type="button" class="btn btn-outline-danger" (click)="deleteMunicipalite(municipalite._id)">Delete</button>
+                  <button type="button" class="btn btn-outline-danger" (click)="deleteMunicipalite(municipalite._id)">Supprimer</button>
                   
                 </td>
                 
@@ -53,7 +53,8 @@
         </div>
       </div>
     </div>
-    <div class="col-xl-4">
+    
+    <div class="col-xl-8">
       <div class="card shadow">
         <div class="card-header border-0">
           <div class="row align-items-center">
@@ -61,7 +62,7 @@
               <h3 class="mb-0">Directeur</h3>
             </div>
             <div class="col text-right">
-              <a href="#!" class="btn btn-sm btn-primary">See all</a>
+              <a href="#!" class="btn btn-sm btn-outline-primary">Ajouter </a>
             </div>
           </div>
         </div>

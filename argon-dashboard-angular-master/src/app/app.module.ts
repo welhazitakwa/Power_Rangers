@@ -13,9 +13,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import { AddMunicipaliteComponent } from './pages/add-municipalite/add-municipalite.component';
-import { UpdateMunicipaliteComponent } from './pages/update-municipalite/update-municipalite.component'; 
-
-
+import { UpdateMunicipaliteComponent } from './pages/update-municipalite/update-municipalite.component';
+import { AddChienComponent } from './pages/add-chien/add-chien.component';
+import { DetailChienComponent } from './pages/detail-chien/detail-chien.component';
 
 
 @NgModule({
@@ -34,6 +34,9 @@ import { UpdateMunicipaliteComponent } from './pages/update-municipalite/update-
     AuthLayoutComponent,
     AddMunicipaliteComponent,
     UpdateMunicipaliteComponent,
+    AddChienComponent,
+    DetailChienComponent,
+    
     
   ],
   providers: [],
