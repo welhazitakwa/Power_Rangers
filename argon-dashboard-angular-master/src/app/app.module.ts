@@ -13,9 +13,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import { AddMunicipaliteComponent } from './pages/add-municipalite/add-municipalite.component';
-import { UpdateMunicipaliteComponent } from './pages/update-municipalite/update-municipalite.component'; 
-
-
+import { UpdateMunicipaliteComponent } from './pages/update-municipalite/update-municipalite.component';
 
 
 @NgModule({
@@ -34,6 +32,7 @@ import { UpdateMunicipaliteComponent } from './pages/update-municipalite/update-
     AuthLayoutComponent,
     AddMunicipaliteComponent,
     UpdateMunicipaliteComponent,
+    
     
   ],
   providers: [],
