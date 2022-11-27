@@ -1,1 +1,83 @@
-<p>add-chien works!</p>
+<div class="header bg-gradient-danger pb-4 pt-5 pt-md-4">
+    <app-navbar></app-navbar>
+    <app-sidebar></app-sidebar>
+  </div>
+  
+  <div class="container">
+    <div class="row align-items-center">
+        <div class="col-xl-8 order-xl-1">
+          <br>
+          <div class="card shadow">
+            <div class="card-header bg-white border-0">
+              <div class="row align-items-center">
+                <div class="col-8">
+                  <h3 class="mb-0">Ajouter Municipalités</h3>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <form>
+                <div class="pl-lg-4">
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="form-control-label" for="nameChien">Nom de chien</label>
+                        <input type="text" id="nameChien" 
+                        class="form-control form-control-alternative" 
+                        placeholder="Entrez le nom"
+                        required 
+                        name="nameChien">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="form-control-label" for="gender"> Gender</label>
+                        <input type="text" 
+                        id="gender" 
+                        class="form-control form-control-alternative" 
+                        placeholder="Entrez une Localisation"
+                        required 
+                        name="gender"
+                        >
+                      </div>
+                    </div>
+                  
+                  </div>
+                </div>
+                <hr class="my-4" />
+                <!-- Address -->
+                
+                <!-- Description -->
+              <a routerLink="/tables"><button (click)="savechien()" type="submit" class="btn btn-primary ">Ajouter</button></a>
+              </form>
+            </div>
+          </div>
+        </div>
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+   
+  </div>
+  
