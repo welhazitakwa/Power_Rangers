@@ -25,7 +25,7 @@
                         <input type="text" id="nameMunicipalite" 
                         class="form-control form-control-alternative" 
                         
-                        required [(ngModel)]="currentMunicipalite.nameMunicipalite"
+                        required [(ngModel)]="municipalite.nameMunicipalite"
                         name="nameMunicipalite">
                       </div>
                     </div>
@@ -38,7 +38,7 @@
                         id="localisationMunicipalite" 
                         class="form-control form-control-alternative" 
                         
-                        required [(ngModel)]="currentMunicipalite.localisationMunicipalite"
+                        required [(ngModel)]="municipalite.localisationMunicipalite"
                         name="localisationMunicipalite"
                         >
                       </div>
@@ -50,7 +50,7 @@
                 <!-- Address -->
                 
                 <!-- Description -->
-              <a routerLink=""><button type="submit" class="btn btn-primary ">Modifier</button></a>
+              <a routerLink=""><button type="submit" (click)="updatemunicipalite()"class="btn btn-primary ">Modifier</button></a>
               </form>
             </div>
           </div>
