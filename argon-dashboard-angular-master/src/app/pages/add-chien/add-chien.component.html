@@ -16,20 +16,44 @@
               </div>
             </div>
             <div class="card-body">
-                <form>
-
-
-
+                <form   >
                     <div class="pl-lg-4">
                       <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">
                               <label class="form-control-label" for="nom">Nom de chien</label>
-                              <input type="text" id="nom" class="form-control form-control-alternative"
+                              <input
+                               type="text"
+
+                               id="nom" class="form-control form-control-alternative"
                                placeholder="Nom"
                                [(ngModel)]="chien.nameChien" >
                             </div>
                           </div>
+                          
+                          
+                          <div class="col-lg-6">
+                            <div class="form-group">
+                              <label class="form-control-label" for="image">Image</label>
+                               <!--    <input #imageInput
+                              type="file"
+                              accept="image/*"
+                              (change)="processFile(imageInput)">-->
+
+                         <input id="image" class="form-control form-control-alternative "
+                              
+                               type="text"
+                              
+                              placeholder="Image" [(ngModel)]="chien.image">
+                            </div>
+                          </div>
+                          
+                          
+                          
+                          
+                          
+                          
+                          <!--
                         <div class="col-lg-6">
                           <div class="form-group">
                             <label class="form-control-label" for="state">Etat Sanitaire</label>
@@ -37,30 +61,33 @@
                              placeholder="Etat Sanitaire"
                              [(ngModel)]="chien.state" >
                           </div>
-                        </div>
+                       </div> -->
                       </div>
                     </div>
                     
                     <div class="pl-lg-4">
                       <div class="row">
-                        <div class="col-md-12">
-                          <div class="form-group">
-                            <label class="form-control-label" for="image">Image</label>
-                            <input id="image" class="form-control form-control-alternative" placeholder="Image" type="text" [(ngModel)]="chien.image">
-                          </div>
-                        </div>
+                       
                       </div>
                       <div class="row">
                         <div class="col-lg-4">
                           <div class="form-group">
                             <label class="form-control-label" for="gender">Genre</label>
-                            <input type="text" id="gender" class="form-control form-control-alternative" placeholder="Genre" [(ngModel)]="chien.gender" >
+                            <select [(ngModel)]='chien.gender' name="dropdownOption" id="dropdownOption" class='form-control'>
+                              <option class="form-control"  >Male</option>
+                              <option class="form-control">Female</option>
+                              
+                              </select>
+                           <!-- <input type="text" id="gender" class="form-control form-control-alternative" 
+                            placeholder="Genre" [(ngModel)]="chien.gender" >-->
                           </div>
                         </div>
                         <div class="col-lg-4">
                           <div class="form-group">
                             <label class="form-control-label" for="color">Couleur</label>
-                            <input type="text" id="color" class="form-control form-control-alternative" placeholder="Couleur" [(ngModel)]="chien.color" >
+                           <input type="text" id="color" 
+                            class="form-control form-control-alternative" 
+                            placeholder="Couleur" [(ngModel)]="chien.color" >
                           </div>
                         </div>
                         <div class="col-lg-4">
