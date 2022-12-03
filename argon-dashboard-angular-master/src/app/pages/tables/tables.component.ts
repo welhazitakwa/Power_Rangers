@@ -32,20 +32,22 @@ export class TablesComponent implements OnInit {
    }
 
 
-  deleteChien(g){
-  
-    this.chienService.delete(g)
-    .subscribe(
-      response =>{
-        console.log(response);
-        this.router.navigate([''])
-      },
-      error=> {
-        console.log(error);
-      }
-    )
-    //this.loadMunicipalites();
-    this.reloadCurrentPage();
+  deleteChien(g,name){
+    if(confirm("Voulez-vous Confirmez la supression de chien : "+name)) {
+      this.chienService.delete(g)
+      .subscribe(
+        response =>{
+          console.log(response);
+          this.router.navigate([''])
+        },
+        error=> {
+          console.log(error);
+        }
+      )
+      //this.loadMunicipalites();
+      this.reloadCurrentPage();
+    }
+
   }
 
 

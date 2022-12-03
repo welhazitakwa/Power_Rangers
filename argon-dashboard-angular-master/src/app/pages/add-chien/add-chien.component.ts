@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChienService } from 'src/app/services/chien.service';
 import { HttpClient } from '@angular/common/http';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 @Component({
   selector: 'app-add-chien',
   templateUrl: './add-chien.component.html',
@@ -25,9 +25,18 @@ export class AddChienComponent implements OnInit {
      
   constructor(private chienService: ChienService,private formBuilder : FormBuilder) { }
 
+  get nameChien() {
+    console.log(this.registerForm.get('chien.nameChien'))
+    return this.registerForm.get('chien.nameChien')
+  }
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
-      nameChien:['',Validators.required]
+      
+      chien: this.formBuilder.group({
+        nameChien:new FormControl('', [Validators.required])
+        // ['', [Validators.required, Validators.minLength(2)]]
+      })
+      
     })
   }
 
