@@ -93,7 +93,7 @@
                         <div class="col-lg-4">
                           <div class="form-group">
                             <label class="form-control-label" for="age">Age</label>
-                            <input type="number" id="age" class="form-control form-control-alternative" placeholder="age" [(ngModel)]="chien.age">
+                            <input type="number" min="0" oninput="this.value = Math.abs(this.value)" id="age" class="form-control form-control-alternative" placeholder="Ajouter l'age par mois" [(ngModel)]="chien.age">
                           </div>
                         </div>
                       </div>
