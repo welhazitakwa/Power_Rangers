@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { ChienService } from 'src/app/services/chien.service';
 import { HttpClient } from '@angular/common/http';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 @Component({
   selector: 'app-add-chien',
   templateUrl: './add-chien.component.html',
   styleUrls: ['./add-chien.component.css']
 })
 export class AddChienComponent implements OnInit {
-
-
-
+  registerForm! : FormGroup
+  submitted = false
 
   
   chien={
@@ -21,10 +21,14 @@ export class AddChienComponent implements OnInit {
     state:false,
     description:''
       }
-      submitted= false;
-  constructor(private chienService: ChienService) { }
+
+     
+  constructor(private chienService: ChienService,private formBuilder : FormBuilder) { }
 
   ngOnInit(): void {
+    this.registerForm = this.formBuilder.group({
+      nameChien:['',Validators.required]
+    })
   }
 
 
@@ -71,6 +75,11 @@ export class AddChienComponent implements OnInit {
 
 
 
+onSubmit(){
+  this.submitted= true
+  if (this.registerForm.invalid) {return}
+  alert ("success")
 
-
+}
+   
 }
