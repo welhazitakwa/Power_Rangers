@@ -8,6 +8,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AddChienComponent implements OnInit {
 
+
+
+
+  
   chien={
     nameChien:'',
     gender:'',
@@ -31,7 +35,7 @@ export class AddChienComponent implements OnInit {
       color: this.chien.color ,
       age: this.chien.age ,
       image: this.chien.image,
-      state: this.chien.state ,
+      state: false ,
       description : this.chien.description
 
     };

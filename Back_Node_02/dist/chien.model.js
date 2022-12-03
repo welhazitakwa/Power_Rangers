@@ -11,7 +11,7 @@ var chienSchema = new mongoose_1["default"].Schema({
     color: { type: String, required: true },
     age: { type: Number, required: true },
     image: { type: String, required: true, "default": new Date() },
-    state: { type: Boolean, required: true, "default": true },
+    state: { type: Boolean, required: true, "default": false },
     description: { type: String, required: true }
 });
 chienSchema.plugin(mongoose_paginate_1["default"]);

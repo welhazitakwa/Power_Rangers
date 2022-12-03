@@ -7,7 +7,7 @@ let chienSchema = new mongoose.Schema({
     color:{type:String, required:true},
     age:{type:Number, required:true},
     image:{type:String, required:true, default:new Date()},
-    state:{type:Boolean, required:true,default: true},
+    state:{type:Boolean, required:true,default: false},
     description : {type:String , required:true},
     
     });
