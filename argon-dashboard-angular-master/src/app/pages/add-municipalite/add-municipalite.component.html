@@ -25,8 +25,16 @@
                       <input type="text" id="nameMunicipalite" 
                       class="form-control form-control-alternative" 
                       placeholder="Entrez le nom"
+                      minlength="5"
                       required [(ngModel)]="municipalite.nameMunicipalite"
+                      #nom="ngModel"
                       name="nameMunicipalite">
+                      <div class="alert " *ngIf=" !nom.valid">
+                        <span class="error" *ngIf="nom.errors.required"><i class="fa fa-exclamation-circle"></i> required  </span>
+                        <span class="error" *ngIf="nom.errors.minlength"><i class="fa fa-exclamation-circle"></i> le nom doit contenir au moin 5 caractéres !!  </span>
+                      </div>
+
+
                     </div>
                   </div>
                 </div>
@@ -39,8 +47,12 @@
                       class="form-control form-control-alternative" 
                       placeholder="Entrez une Localisation"
                       required [(ngModel)]="municipalite.localisationMunicipalite"
+                      #loc="ngModel"
                       name="localisationMunicipalite"
                       >
+                      <div class="alert " *ngIf=" !loc.valid">
+                        <span class="error" *ngIf="loc.errors.required"><i class="fa fa-exclamation-circle"></i> required  </span>
+                         </div>
                     </div>
                   </div>
                 
