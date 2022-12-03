@@ -90,8 +90,9 @@ this.municipalites=[];
    }
 
 
-  deleteMunicipalite(g){
-  
+  deleteMunicipalite(g,name){
+    if(confirm("Voulez-vous Confirmez la supression de la municipalité : "+name)) {
+    
     this.municipaliteService.delete(g)
     .subscribe(
       response =>{
@@ -105,6 +106,6 @@ this.municipalites=[];
     //this.loadMunicipalites();
     this.reloadCurrentPage();
   }
-
+  }
 
 }

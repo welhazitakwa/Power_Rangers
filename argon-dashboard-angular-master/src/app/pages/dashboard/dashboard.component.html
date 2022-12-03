@@ -43,7 +43,7 @@
                   <!--<button type="button" class="btn btn-outline-success" [routerLink]="['/update-municipalite',,municipalite._id]">>Edit</button>-->
                   <a class="btn btn-outline-success" 
                     [routerLink]="['/update-municipalite',municipalite._id]">Modifier</a>
-                  <button type="button" class="btn btn-outline-danger" (click)="deleteMunicipalite(municipalite._id)">Supprimer</button>
+                  <button type="button" class="btn btn-outline-danger" (click)="deleteMunicipalite(municipalite._id,municipalite.nameMunicipalite)">Supprimer</button>
                   
                 </td>
                 
