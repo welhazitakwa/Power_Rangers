@@ -56,13 +56,13 @@
                                <!--    <input #imageInput
                               type="file"
                               accept="image/*"
-                              (change)="processFile(imageInput)">-->
-
+                              (change)="processFile(imageInput)">
+//(change)="onFileSelected($event)"-->
                          <input id="image" class="form-control form-control-alternative "
                               
-                               type="text"
+                               type="text" #selectImage 
                               
-                              placeholder="Image" [(ngModel)]="chien.image">
+                              placeholder="Lien de l'image" [(ngModel)]="chien.image">
                             </div>
                           </div>
                           
