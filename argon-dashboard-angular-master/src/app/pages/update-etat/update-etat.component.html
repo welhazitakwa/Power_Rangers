@@ -62,14 +62,19 @@
                              [(ngModel)]="chien.state" >-->
 
                              <div>
-                                <input type="radio" id="huey" name="drone" value="huey"checked>
-                                <label [(ngModel)]="currentChien.state"> Malade</label>
+                                <input type="radio" id="huey" name="drone" value="huey">
+                                <label> Malade</label>
                               </div>
                           
                               <div>
                                 <input type="radio" id="dewey" name="drone" value="dewey">
-                                <label [(ngModel)]="currentChien.state"> sain</label>
+                                <label> sain</label>
                               </div>
+
+                              <!--<div class="input-space">
+                                <input [ngModel]="currentChien?.state"   type="radio" value="F">Malade
+                                <input [ngModel]="currentChien?.state"   type="radio" value="M">sain
+                            </div>-->
 
 
 
