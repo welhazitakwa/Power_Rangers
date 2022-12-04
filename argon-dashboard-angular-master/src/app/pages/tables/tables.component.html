@@ -38,9 +38,9 @@
               <tr *ngFor="let chien of chiens; let i=index" >
                 <th scope="row">
                   <div class="media align-items-center">
-                    <!--<a href="javascript:void(0)" class="avatar rounded-circle mr-3">
+                    <a href="javascript:void(0)" class="avatar rounded-circle mr-3">
                       <img alt="Image placeholder" [src]="chien.image">
-                    </a>-->
+                    </a>
 
                     <div class="media-body">
                       <span class="mb-0 text-sm">{{chien.nameChien}}</span>
@@ -71,7 +71,7 @@
                       <img alt="Image placeholder" src="../assets/img/theme/team-4-800x800.jpg" class="rounded-circle">
                     </a>
                   </div>-->
-                  {{chien.age}}
+                  {{chien.age}} mois
                 </td>
 
                 <td>
@@ -95,9 +95,17 @@
                   </div>
                 </td>
                 <td class="text-right">
+
                   <a class="btn btn-outline-success" [routerLink]="['/update-chien',chien._id]" >Modifier</a>
-                  <button type="button" (click)="deleteChien(chien._id)" class="btn btn-outline-danger" >Supprimer</button>
+                 <!-- <button type="button" (click)="deleteChien(chien._id)" class="btn btn-outline-danger" >Supprimer</button>
                   <button type="button" class="btn btn-outline-info" >Details</button>
+
+                  <a class="btn btn-outline-success" >Modifier</a>-->
+                  <button type="button" (click)="deleteChien(chien._id,chien.nameChien)" class="btn btn-outline-danger" >Supprimer</button>
+                  <button type="button"
+                  [routerLink]="['/detail-chien',chien._id]"
+                    class="btn btn-outline-info" >Details</button>
+
                 </td>
               </tr>
               

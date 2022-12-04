@@ -8,7 +8,11 @@ import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component
 import { AddMunicipaliteComponent } from './pages/add-municipalite/add-municipalite.component'; 
 import { UpdateMunicipaliteComponent } from './pages/update-municipalite/update-municipalite.component';
 import { AddChienComponent } from './pages/add-chien/add-chien.component';
+
 import { UpdateChienComponent } from './pages/update-chien/update-chien.component';
+
+import { DetailChienComponent } from './pages/detail-chien/detail-chien.component';
+
 const routes: Routes =[
 
   {path: "add-municipalite", component : AddMunicipaliteComponent,
@@ -23,6 +27,10 @@ loadChildren: () => import('src/app/layouts/admin-layout/admin-layout.module').t
 },
 {path: "update-chien/:id", component : UpdateChienComponent,
   loadChildren: () => import('src/app/layouts/admin-layout/admin-layout.module').then(m => m.AdminLayoutModule)
+},
+{path: "detail-chien/:id", component :DetailChienComponent ,
+loadChildren: () => import('src/app/layouts/admin-layout/admin-layout.module').then(m => m.AdminLayoutModule)
+
 },
 
   {
