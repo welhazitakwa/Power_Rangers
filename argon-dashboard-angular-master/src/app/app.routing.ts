@@ -22,7 +22,7 @@ const routes: Routes =[
 loadChildren: () => import('src/app/layouts/admin-layout/admin-layout.module').then(m => m.AdminLayoutModule)
 
 },
-{path: "detail-chien", component :DetailChienComponent ,
+{path: "detail-chien/:id", component :DetailChienComponent ,
 loadChildren: () => import('src/app/layouts/admin-layout/admin-layout.module').then(m => m.AdminLayoutModule)
 
 },
