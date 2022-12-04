@@ -18,7 +18,7 @@
                         <div >
                           <div class="card-profile-image">
                            
-                              <img src="assets/img/theme/team-4-800x800.jpg" >
+                              <img [src]="currentChien.image" />
                             
 
 
@@ -27,15 +27,15 @@
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <div>
                                     <span class="heading">  Genre</span>
-                                    <span class="description">Friends</span>
+                                    <span class="description" [(ngModel)]="currentChien.gender" > {{currentChien.gender}}</span>
                                   </div>
                                   <div>
                                     <span class="heading">Couleur</span>
-                                    <span class="description">Photos</span>
+                                    <span class="description" [(ngModel)]="currentChien.color"  >{{currentChien.color}}</span>
                                   </div>
                                   <div>
                                     <span class="heading">Age</span>
-                                    <span class="description">Comments mois</span>
+                                    <span class="description">{{currentChien.age}} mois</span>
                                   </div>
                                 </div>
                               </div>
@@ -55,17 +55,19 @@
                         </div>
                         <div >
                           <h3>
-                            Nom de Chien : <span class="font-weight-light"> 27</span>
+                            Nom de Chien : <span class="font-weight-light"> {{currentChien.nameChien}} </span>
                           </h3>
-                             <h3>
-                            Etat Sanitaire : <span class="font-weight-light"> 27</span>
+                          <h3>
+                            Etat Sanitaire : 
+                            <span class="font-weight-light" *ngIf="currentChien.state==false">malade </span> 
+                            <span class="font-weight-light" *ngIf="currentChien.state==true">Sain </span>
                          </h3> 
                                   
                           <hr class="my-4" />
                           <h3>Description </h3>
                           <p>
-                            .................kgkgkgfkfgkgfkjgkosdmfkeljgimorsjgtmorhjtgorjtgoiùjgjrtgjhtrjgotrjgijrgjrtgjrijgprtjgpotjgpitrjgpijhbpokbohrbgu
-                          </p>
+                           {{currentChien.description}}
+                        </p>
                         </div>
                       </div>
                     </div>
@@ -85,6 +87,8 @@
 
             
           </div>
+        </div>
+        </div>
         </div>
   
   
@@ -110,5 +114,3 @@
   
   
    
-  </div>
-  
