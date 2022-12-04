@@ -1,75 +1,74 @@
 <div class="header bg-gradient-danger pb-4 pt-5 pt-md-4">
-    <app-navbar></app-navbar>
-    <app-sidebar></app-sidebar>
-  </div>
-  
-  <div class="container">
-    <div class="row align-items-center">
-        <div class="col-xl-8 order-xl-1">
-          <br>
-          <div class="card shadow">
-            <div class="card-header bg-white border-0">
-              <div class="row align-items-center">
-                <div class="col-8">
-                  <h3 class="mb-0">Modifier Municipalités</h3>
-                </div>
+  <app-navbar></app-navbar>
+  <app-sidebar></app-sidebar>
+</div>
+
+<div class="container">
+  <div class="row align-items-center">
+      <div class="col-xl-8 order-xl-1">
+        <br>
+        <div class="card shadow">
+          <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+              <div class="col-8">
+                <h3 class="mb-0">Modifier Municipalités</h3>
               </div>
             </div>
-            <div class="card-body">
-              <form>
-                <div class="pl-lg-4">
-                  <div class="row">
-                    <div class="col-lg-6">
-                      <div class="form-group">
-                        <label class="form-control-label" for="nameMunicipalite">Nom de la municipalite</label>
-                        <input type="text" id="nameMunicipalite" 
-                        class="form-control form-control-alternative" 
-                        
-                        required [(ngModel)]="municipalite.nameMunicipalite"
-                        name="nameMunicipalite">
-                      </div>
+          </div>
+          <div class="card-body">
+            <form>
+              <div class="pl-lg-4">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="nameMunicipalite">Nom de la municipalite</label>
+                      <input type="text" id="nameMunicipalite" 
+                      class="form-control form-control-alternative" 
+                      
+                      required [(ngModel)]="currentMunicipalite.nameMunicipalite"
+                      name="nameMunicipalite">
                     </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-lg-6">
-                      <div class="form-group">
-                        <label class="form-control-label" for="localisationMunicipalite">Localisation</label>
-                        <input type="text" 
-                        id="localisationMunicipalite" 
-                        class="form-control form-control-alternative" 
-                        
-                        required [(ngModel)]="municipalite.localisationMunicipalite"
-                        name="localisationMunicipalite"
-                        >
-                      </div>
-                    </div>
-                  
                   </div>
                 </div>
-                <hr class="my-4" />
-                <!-- Address -->
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="localisationMunicipalite">Localisation</label>
+                      <input type="text" 
+                      id="localisationMunicipalite" 
+                      class="form-control form-control-alternative" 
+                      
+                      required [(ngModel)]="currentMunicipalite.localisationMunicipalite"
+                      name="localisationMunicipalite"
+                      >
+                    </div>
+                  </div>
                 
-                <!-- Description -->
-              <a routerLink=""><button type="submit" (click)="updatemunicipalite()"class="btn btn-primary ">Modifier</button></a>
-              </form>
-            </div>
+                </div>
+              </div>
+              <hr class="my-4" />
+              <!-- Address -->
+              
+              <!-- Description -->
+            <a routerLink=""><button type="submit" (click)="updatemunicipalite()"class="btn btn-primary ">Modifier</button></a>
+            </form>
           </div>
         </div>
+      </div>
+
+
   
-  
-    
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-   
-  </div>
-  
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+</div>

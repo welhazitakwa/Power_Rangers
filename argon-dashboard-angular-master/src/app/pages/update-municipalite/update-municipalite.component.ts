@@ -15,18 +15,22 @@ export class UpdateMunicipaliteComponent implements OnInit {
     nameMunicipalite:'',
     localisationMunicipalite:'',
       }
-      currentMunicipalite=null;
+      currentMunicipalite:any;
+      municipalites:any;
+      currentIndex=-1;
+      message='';
   id: any;
+
 
   constructor(private municipaliteService: MunicipaliteService, private activatedRoute: ActivatedRoute, private fb: FormBuilder, private routes :Router) { 
   }
 
   ngOnInit(): void {
-    const data ={
+   /* const data ={
       nameMunicipalite: this.municipalite.nameMunicipalite,
       localisationMunicipalite: this.municipalite.localisationMunicipalite
 
-    };
+    };*/
 
     /*this.currentMunicipalite=this.municipaliteService.get(this.activatedRoute.snapshot.params['id']);
     console.log(this.currentMunicipalite);*/
@@ -43,17 +47,32 @@ export class UpdateMunicipaliteComponent implements OnInit {
       }
       
     );
+
+    //this.message='';
+    this.getMunicipalite(this.id);
   }
 
-  updatemunicipalite(){
-    const data ={
-      nameMunicipalite: this.municipalite.nameMunicipalite,
-      localisationMunicipalite: this.municipalite.localisationMunicipalite
+  getMunicipalite(id){
+   this.municipaliteService.get(id).subscribe(
+   response =>{
 
-    };
-    this.municipaliteService.update(this.id,data).subscribe(
+    this.currentMunicipalite =response;
+    console.log(response);
+    
+  },
+  error=> {
+    console.log(error);
+  }
+  
+);
+  }
+
+
+
+ /* retriveMunicipalite(){
+    this.municipaliteService.getAll().subscribe(
       response =>{
-
+      this.municipalites=response;
         console.log(response);
         
       },
@@ -62,6 +81,35 @@ export class UpdateMunicipaliteComponent implements OnInit {
       }
       
     );
+  }*/
+
+  updatemunicipalite(){
+   /* const data ={
+      nameMunicipalite: this.municipalite.nameMunicipalite,
+      localisationMunicipalite: this.municipalite.localisationMunicipalite
+
+    };*/
+
+   /* const data ={
+      nameMunicipalite: this.currentMunicipalite.nameMunicipalite,
+      localisationMunicipalite: this.currentMunicipalite.localisationMunicipalite
+
+    }*/
+
+    this.municipaliteService.update(this.id,this.currentMunicipalite).subscribe(
+      response =>{
+
+        console.log(response);
+        //this.message="the municipalite was update successfully";
+        
+      },
+      error=> {
+        console.log(error);
+      }
+      
+    );
+    this.routes.navigate(['/update-municipalite']);
   }
 
 }
+
