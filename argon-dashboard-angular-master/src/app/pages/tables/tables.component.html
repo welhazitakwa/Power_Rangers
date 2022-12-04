@@ -95,12 +95,11 @@
                   </div>
                 </td>
                 <td class="text-right">
-                  <a class="btn btn-outline-success" >Modifier</a>
+                  <a class="btn btn-outline-success" [routerLink]="['/update-chien',chien._id]" >Modifier</a>
                   <button type="button" (click)="deleteChien(chien._id)" class="btn btn-outline-danger" >Supprimer</button>
                   <button type="button" class="btn btn-outline-info" >Details</button>
                 </td>
               </tr>
-              
               
             
             </tbody>

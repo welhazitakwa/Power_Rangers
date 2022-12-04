@@ -16,6 +16,7 @@ import { AddMunicipaliteComponent } from './pages/add-municipalite/add-municipal
 import { UpdateMunicipaliteComponent } from './pages/update-municipalite/update-municipalite.component';
 import { AddChienComponent } from './pages/add-chien/add-chien.component';
 import { DetailChienComponent } from './pages/detail-chien/detail-chien.component';
+import { UpdateChienComponent } from './pages/update-chien/update-chien.component';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { DetailChienComponent } from './pages/detail-chien/detail-chien.componen
     UpdateMunicipaliteComponent,
     AddChienComponent,
     DetailChienComponent,
+    UpdateChienComponent,
     
     
   ],
