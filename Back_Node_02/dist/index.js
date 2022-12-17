@@ -8,13 +8,10 @@ var municipalite_model_1 = __importDefault(require("./municipalite.model"));
 var chien_model_1 = __importDefault(require("./chien.model"));
 var mongoose_1 = __importDefault(require("mongoose"));
 var body_parser_1 = __importDefault(require("body-parser"));
-var cors_1 = __importDefault(require("cors"));
-var corsOptions = {
-    origin: "http://localhost:8090"
-};
+var cors = require('cors');
 var app = (0, express_1["default"])();
 app.use(body_parser_1["default"].json());
-app.use((0, cors_1["default"])(corsOptions));
+app.use(cors());
 var url = "mongodb://localhost:27017/Power_Rangers";
 mongoose_1["default"].connect(url, function (err) {
     if (err)
