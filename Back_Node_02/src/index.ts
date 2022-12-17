@@ -4,15 +4,11 @@ import Municipalite from "./municipalite.model";
 import Chien from "./chien.model";
 import mongoose from "mongoose";
 import bodyParser from "body-parser"
-import cors from "cors";
-
-var corsOptions = {
-    origin : "http://localhost:8090"
-};
+const cors = require('cors');
 
 const app=express();
 app.use(bodyParser.json())
-app.use(cors(corsOptions));
+app.use(cors());
 
 const url = "mongodb://localhost:27017/Power_Rangers"
 mongoose.connect(url,(err)=>{
