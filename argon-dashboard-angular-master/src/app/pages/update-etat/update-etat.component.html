@@ -54,31 +54,13 @@
                           
                         
                           
-                        <div class="col-lg-6">
+                        <div>
                           <div class="form-group">
                             <h6 class="form-control-label" >Etat Sanitaire</h6>
-                            <!--<input type="text" id="state" class="form-control form-control-alternative"
-                             placeholder="Etat Sanitaire"
-                             [(ngModel)]="chien.state" >-->
-
-                        <!--     <div>
-                                <input type="radio" id="huey" name="drone" value="huey">
-                                <label> Malade</label>
-                              </div>
-                          
-                              <div>
-                                <input type="radio" id="dewey" name="drone" value="dewey">
-                                <label> sain</label>
-                              </div>-->
-
-                              <!--<div class="input-space">
-                                <input [ngModel]="currentChien?.state"   type="radio" value="F">Malade
-                                <input [ngModel]="currentChien?.state"   type="radio" value="M">sain
-                            </div>-->
-                              
-                            <button  type="button" class="btn btn-outline-success" (click)="updatestate()" > <i class="bi bi-check2-all"></i>Sain</button>
-                            <button> Malade</button>
-
+                       
+                              <p> Valider L'état Sanitaire du chien de chien : {{currentChien.nameChien}} &nbsp;&nbsp;
+                            <button  type="button" class="btn btn-outline-success" (click)="updatestate()" >Valider </button>
+                          </p>
                           </div>
                        </div> 
                       </div>
