@@ -8,6 +8,8 @@ var municipalite_model_1 = __importDefault(require("./municipalite.model"));
 var chien_model_1 = __importDefault(require("./chien.model"));
 var mongoose_1 = __importDefault(require("mongoose"));
 var body_parser_1 = __importDefault(require("body-parser"));
+var PORT = process.env.PORT || 8090;
+var eurekaHelper = require('./eureka-helper');
 var cors = require('cors');
 var app = (0, express_1["default"])();
 app.use(body_parser_1["default"].json());
@@ -167,6 +169,7 @@ app.get("/chiensSearch", function (req, res) {
 app.get("/", function (req, resp) {
     resp.send("hello express");
 });
-app.listen(8090, function () {
+app.listen(PORT, function () {
     console.log("server started");
 });
+eurekaHelper.registerWithEureka('back_node_02', PORT);

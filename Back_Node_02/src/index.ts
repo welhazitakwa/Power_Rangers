@@ -4,6 +4,12 @@ import Municipalite from "./municipalite.model";
 import Chien from "./chien.model";
 import mongoose from "mongoose";
 import bodyParser from "body-parser"
+
+
+const PORT = process.env.PORT || 8090;
+const eurekaHelper = require('./eureka-helper');
+
+
 const cors = require('cors');
 
 const app=express();
@@ -182,6 +188,8 @@ app.get("/" , (req,resp)=>{
     resp.send("hello express")
 });
 
-app.listen(8090,()=>{
+app.listen(PORT,()=>{
     console.log("server started")
 })
+
+eurekaHelper.registerWithEureka('back_node_02', PORT);
