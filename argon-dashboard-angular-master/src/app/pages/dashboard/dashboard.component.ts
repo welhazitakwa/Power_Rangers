@@ -97,7 +97,8 @@ this.municipalites=[];
     .subscribe(
       response =>{
         console.log(response);
-        this.router.navigate([''])
+        //this.router.navigate([''])
+        //this.loadMunicipalites();
       },
       error=> {
         console.log(error);
