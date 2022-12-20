@@ -14,7 +14,7 @@ import { UpdateChienComponent } from './pages/update-chien/update-chien.componen
 import { DetailChienComponent } from './pages/detail-chien/detail-chien.component';
 import { DashboardVeterinaireComponent } from './pages/dashboard-veterinaire/dashboard-veterinaire.component';
 import { UpdateEtatComponent } from './pages/update-etat/update-etat.component';
-
+import { DetChienVeterComponent } from './pages/det-chien-veter/det-chien-veter.component';
 const routes: Routes =[
 
   {path: "add-municipalite", component : AddMunicipaliteComponent,
@@ -41,6 +41,10 @@ loadChildren: () => import('src/app/layouts/admin-layout/admin-layout.module').t
   loadChildren: () => import('src/app/layouts/admin-layout/admin-layout.module').then(m => m.AdminLayoutModule)
 },
 {path: "detail-chien/:id", component :DetailChienComponent ,
+loadChildren: () => import('src/app/layouts/admin-layout/admin-layout.module').then(m => m.AdminLayoutModule)
+
+},
+{path: "detail-chien-vet/:id", component :DetChienVeterComponent ,
 loadChildren: () => import('src/app/layouts/admin-layout/admin-layout.module').then(m => m.AdminLayoutModule)
 
 },
