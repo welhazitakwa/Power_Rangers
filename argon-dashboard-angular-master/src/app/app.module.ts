@@ -19,6 +19,7 @@ import { DetailChienComponent } from './pages/detail-chien/detail-chien.componen
 import { UpdateChienComponent } from './pages/update-chien/update-chien.component';
 import { DashboardVeterinaireComponent } from './pages/dashboard-veterinaire/dashboard-veterinaire.component';
 import { UpdateEtatComponent } from './pages/update-etat/update-etat.component';
+import { DetChienVeterComponent } from './pages/det-chien-veter/det-chien-veter.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { UpdateEtatComponent } from './pages/update-etat/update-etat.component';
     UpdateChienComponent,
     DashboardVeterinaireComponent,
     UpdateEtatComponent,
+    DetChienVeterComponent,
     
     
   ],
