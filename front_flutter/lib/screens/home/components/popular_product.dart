@@ -3,7 +3,7 @@ import 'package:shop_app/components/product_card.dart';
 import 'package:shop_app/models/Product.dart';
 
 import '../../../size_config.dart';
-import 'section_title.dart';
+//import 'section_title.dart';
 
 class PopularProducts extends StatelessWidget {
   @override
@@ -13,7 +13,7 @@ class PopularProducts extends StatelessWidget {
         Padding(
           padding:
               EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
-          child: SectionTitle(title: "New Arrivals", press: () {}),
+          //child: SectionTitle(title: "New Arrivals", press: () {}),
         ),
         SizedBox(height: getProportionateScreenWidth(20)),
         SingleChildScrollView(
