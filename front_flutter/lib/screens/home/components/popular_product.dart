@@ -74,7 +74,7 @@ class PopularProducts extends StatelessWidget {
                
                 return Container(
                       height:600,
-                      width:500,
+                      width:400,
                       child: ListView.builder(
                       shrinkWrap: true,
                       itemCount: snapshort.data!.length,
