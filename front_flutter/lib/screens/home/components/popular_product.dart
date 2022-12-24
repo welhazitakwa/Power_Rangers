@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:shop_app/components/product_card.dart';
 import 'package:shop_app/models/Chien.dart';
 import 'package:http/http.dart' as http;
+import 'package:shop_app/screens/home/components/section_title.dart';
 
 import '../../../size_config.dart';
 
@@ -54,7 +55,7 @@ class PopularProducts extends StatelessWidget {
       Padding(
         padding:
             EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
-        //child: SectionTitle(title: "New Arrivals", press: () {}),
+            child: SectionTitle(title: "List Of Dogs", press: () {}),
       ),
       SizedBox(height: getProportionateScreenWidth(20)),
       SingleChildScrollView(
