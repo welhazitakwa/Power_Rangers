@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app/components/rounded_icon_btn.dart';
-import 'package:shop_app/models/Product.dart';
+import 'package:shop_app/models/Chien.dart';
 
 import '../../../constants.dart';
 import '../../../size_config.dart';
@@ -11,7 +11,7 @@ class ColorDots extends StatelessWidget {
     required this.product,
   }) : super(key: key);
 
-  final Product product;
+  final Chien product;
 
   @override
   Widget build(BuildContext context) {
@@ -22,13 +22,14 @@ class ColorDots extends StatelessWidget {
           EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
       child: Row(
         children: [
-          ...List.generate(
+          Text("blablabla")
+        /*  ...List.generate(
             product.colors.length,
             (index) => ColorDot(
               color: product.colors[index],
               isSelected: index == selectedColor,
             ),
-          ),
+          )*/,
           Spacer(),
           RoundedIconBtn(
             icon: Icons.remove,

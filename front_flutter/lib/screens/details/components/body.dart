@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app/components/default_button.dart';
-import 'package:shop_app/models/Product.dart';
+import 'package:shop_app/models/Chien.dart';
 import 'package:shop_app/size_config.dart';
 
 import 'color_dots.dart';
@@ -9,7 +9,7 @@ import 'top_rounded_container.dart';
 import 'product_images.dart';
 
 class Body extends StatelessWidget {
-  final Product product;
+  final Chien product;
 
   const Body({Key? key, required this.product}) : super(key: key);
 

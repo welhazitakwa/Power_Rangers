@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/models/Product.dart';
+import 'package:shop_app/models/Chien.dart';
 
 import '../../../constants.dart';
 import '../../../size_config.dart';
@@ -10,7 +10,7 @@ class ProductImages extends StatefulWidget {
     required this.product,
   }) : super(key: key);
 
-  final Product product;
+  final Chien product;
 
   @override
   _ProductImagesState createState() => _ProductImagesState();
@@ -27,8 +27,8 @@ class _ProductImagesState extends State<ProductImages> {
           child: AspectRatio(
             aspectRatio: 1,
             child: Hero(
-              tag: widget.product.id.toString(),
-              child: Image.asset(widget.product.images[selectedImage]),
+              tag: widget.product.age.toString(),
+              child: Image.asset(widget.product.image),
             ),
           ),
         ),
@@ -36,7 +36,7 @@ class _ProductImagesState extends State<ProductImages> {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ...List.generate(widget.product.images.length,
+            ...List.generate(widget.product.image.length,
                 (index) => buildSmallProductPreview(index)),
           ],
         )
@@ -63,7 +63,7 @@ class _ProductImagesState extends State<ProductImages> {
           border: Border.all(
               color: kPrimaryColor.withOpacity(selectedImage == index ? 1 : 0)),
         ),
-        child: Image.asset(widget.product.images[index]),
+        child: Image.asset(widget.product.image[index]),
       ),
     );
   }
