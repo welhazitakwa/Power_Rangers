@@ -1,13 +1,21 @@
 import 'package:flutter/material.dart';
 
-class Product {
-  final int id;
-  final String title, description;
-  final List<String> images;
-  final List<Color> colors;
-  final double rating, price;
-  final bool isFavourite, isPopular;
-
+class Chien {
+   Object id;
+   String nameChien, gender,color,image,description;
+   int age;
+   bool state;
+  
+    Chien(this.id, this.nameChien, this.gender,
+    this.color,
+     this.image,
+    this.description,
+    //this.isFavourite = false,
+     this.age,
+    this.state,
+  );
+ // final bool isFavourite, isPopular;
+/*
   Product({
     required this.id,
     required this.images,
@@ -18,11 +26,16 @@ class Product {
     required this.title,
     required this.price,
     required this.description,
-  });
+  });*/
+factory Chien.fromJson(Map<String, dynamic> json) {
+    return Chien (json["_id"], json["nameChien"], json["gender"], 
+                 json["color"],json["image"],json["description"],json["age"],
+                 json["state"]);
+  }
 }
 
 // Our demo Products
-
+/*
 List<Product> demoProducts = [
   Product(
     id: 1,
@@ -98,6 +111,6 @@ List<Product> demoProducts = [
     isFavourite: true,
   ),
 ];
-
+*/
 const String description =
     "This dog is very easy and lovely with children, he is is very very calm and protective of its owner …";
