@@ -28,7 +28,7 @@ import '../../../size_config.dart';
  // List<dynamic> _chiens = [];
 //Future<void> async {
     Future<List<Chien>> fetchchiens() async {
-    Response response = await Dio().get('http://localhost:8090/chiens');
+    Response response = await Dio().get('http://192.168.1.18:8090/chiens');
     return (response.data as List).map((x) => Chien.fromJson(x)).toList();
   }
 
@@ -73,7 +73,7 @@ class PopularProducts extends StatelessWidget {
               } else if (snapshort.hasData) {
                
                 return Container(
-                      height: 200,
+                      height:600,
                       width:500,
                       child: ListView.builder(
                       shrinkWrap: true,
