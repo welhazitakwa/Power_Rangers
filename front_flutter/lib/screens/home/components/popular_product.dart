@@ -29,7 +29,7 @@ import '../../../size_config.dart';
  // List<dynamic> _chiens = [];
 //Future<void> async {
     Future<List<Chien>> fetchchiens() async {
-    Response response = await Dio().get('http://192.168.1.18:8090/chiens');
+    Response response = await Dio().get('http://192.168.1.13:8090/chiens');
     return (response.data as List).map((x) => Chien.fromJson(x)).toList();
   }
 
@@ -100,7 +100,13 @@ class PopularProducts extends StatelessWidget {
                                     fontWeight: FontWeight.bold,
                                   )),
                               // ignore: prefer_interpolation_to_compose_strings
-                              subtitle: Text("age: "+snapshort.data![index].age.toString())
+                              subtitle: Text("age: "+snapshort.data![index].age.toString()),
+                             /*  onTap: () {
+
+                          
+                          Navigator.push(context,MaterialPageRoute(builder: (context) => SecondWidget(p1 : snapshort.data![index].id)),);
+                          
+                        }*/
                             // snapshort.data![index].age.toString()),
                           ),
                         ],
@@ -120,6 +126,149 @@ class PopularProducts extends StatelessWidget {
     ]);
   }
 }
+
+
+
+
+/*
+
+class SecondWidget extends StatelessWidget {
+     Object p1;
+     SecondWidget({this.p1 = 0});
+     
+     
+  @override
+  Widget build(BuildContext context) {
+    return (MaterialApp(
+        home: Scaffold(
+            appBar: AppBar(
+              title: const Text("Second Widget")
+              ),
+            body: Container(
+              child: Container(
+                margin: EdgeInsets.all(16.0),
+                    padding: EdgeInsets.all(16.0),
+                    decoration: BoxDecoration(
+                        color: Color.fromARGB(255, 255, 255, 255),
+                        border: Border.all(),
+                        borderRadius: BorderRadius.all(Radius.circular(3.0))),
+              
+              /*child:Column(mainAxisSize: MainAxisSize.min,
+        children: [Row(children: [
+          Image.network(snapshort.data![p1].image, width: 220,height: 140,)
+          //Image.asset("assets/${dogList[p1].image}", width: 220,height: 140,),
+         /* Text(dogList[p1].name, style: TextStyle(color: Color.fromARGB(255, 44, 5, 182)),)*/],
+          ),
+          
+            Padding(
+                          padding: EdgeInsets.symmetric(
+                            vertical: 16.0,
+                            horizontal: 0,
+                          ),
+                         /* child: Text(dogList[p1].description,
+                             
+                              style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)))*/),
+                         
+        ])*/
+
+        child:
+              //const Text("gggggggg"),
+              //Text(chiens.toString()),
+              FutureBuilder<List<Chien>>(
+            future: fetchchiens(),
+            builder: (context, snapshort) {
+
+
+
+
+              /*return Container(
+                      height:600,
+                      width:400,
+                      child: ListView.builder(
+                      shrinkWrap: true,
+                      itemCount: snapshort.data!.length,
+                      itemBuilder: (context, index) {*/
+
+
+
+              return Card(
+                      margin: const EdgeInsets.all(10),
+                      color: const Color.fromARGB(255, 228, 221, 230),
+                      shadowColor: Colors.blueGrey,
+                      elevation: 10,
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          ListTile(
+                            
+
+                            leading: Image.network(snapshort.data![0].image),
+                            //Text(snapshort.data![index].nameChien ),
+                            //
+                             title: Text(snapshort.data![0].nameChien ,
+                                  //snapshort.data![index].nameChien,
+                                  style: const TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                  )),
+                              // ignore: prefer_interpolation_to_compose_strings
+                              subtitle: Text("age: "+snapshort.data![0].age.toString()),
+                            // snapshort.data![index].age.toString()),
+                            /* onTap: () {
+
+                          
+                          Navigator.push(context,MaterialPageRoute(builder: (context) => SecondWidget(p1 : snapshort.data![index].id)),);
+                          
+                        }*/
+                        
+                          ),
+                        ],
+                      ),
+                    );
+
+                   /*  },
+                )
+                );*/
+
+            }
+              ),
+
+              ),
+
+                )
+          )
+        )
+      );
+  }
+  }
+
+
+              
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
