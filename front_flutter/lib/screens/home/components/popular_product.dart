@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:dio/dio.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:shop_app/components/product_card.dart';
@@ -11,7 +12,10 @@ import 'package:shop_app/models/Chien.dart';
 import 'package:http/http.dart' as http;
 import 'package:shop_app/screens/home/components/section_title.dart';
 
+import '../../../components/default_button.dart';
+import '../../../components/rounded_icon_btn.dart';
 import '../../../size_config.dart';
+import '../../details/components/custom_app_bar.dart';
 
 //import 'section_title.dart';
 /*
@@ -101,12 +105,12 @@ class PopularProducts extends StatelessWidget {
                                   )),
                               // ignore: prefer_interpolation_to_compose_strings
                               subtitle: Text("age: "+snapshort.data![index].age.toString()),
-                             /*  onTap: () {
+                               onTap: () {
 
                           
                           Navigator.push(context,MaterialPageRoute(builder: (context) => SecondWidget(p1 : snapshort.data![index].id)),);
                           
-                        }*/
+                        }
                             // snapshort.data![index].age.toString()),
                           ),
                         ],
@@ -127,23 +131,22 @@ class PopularProducts extends StatelessWidget {
   }
 }
 
-
-
-
-/*
-
 class SecondWidget extends StatelessWidget {
      Object p1;
-     SecondWidget({this.p1 = 0});
+     
+    
+     SecondWidget({this.p1= 0 });
+     
+       get index => 0;
      
      
   @override
   Widget build(BuildContext context) {
     return (MaterialApp(
+      debugShowCheckedModeBanner: false,
+      
         home: Scaffold(
-            appBar: AppBar(
-              title: const Text("Second Widget")
-              ),
+
             body: Container(
               child: Container(
                 margin: EdgeInsets.all(16.0),
@@ -152,6 +155,15 @@ class SecondWidget extends StatelessWidget {
                         color: Color.fromARGB(255, 255, 255, 255),
                         border: Border.all(),
                         borderRadius: BorderRadius.all(Radius.circular(3.0))),
+
+
+
+
+
+
+
+
+                        
               
               /*child:Column(mainAxisSize: MainAxisSize.min,
         children: [Row(children: [
@@ -172,58 +184,126 @@ class SecondWidget extends StatelessWidget {
         ])*/
 
         child:
-              //const Text("gggggggg"),
-              //Text(chiens.toString()),
               FutureBuilder<List<Chien>>(
             future: fetchchiens(),
             builder: (context, snapshort) {
-
-
-
-
-              /*return Container(
-                      height:600,
-                      width:400,
-                      child: ListView.builder(
-                      shrinkWrap: true,
-                      itemCount: snapshort.data!.length,
-                      itemBuilder: (context, index) {*/
-
-
-
-              return Card(
-                      margin: const EdgeInsets.all(10),
-                      color: const Color.fromARGB(255, 228, 221, 230),
-                      shadowColor: Colors.blueGrey,
-                      elevation: 10,
+              return Container(
+               // height: 40,
+                     //margin: const EdgeInsets.all(10),
+                      //color: const Color(0xFFF5F6F9),
+                      //shadowColor: Colors.blueGrey,
+                      //elevation: 10,
                       child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisSize: MainAxisSize.min,
                         children: <Widget>[
-                          ListTile(
-                            
-
-                            leading: Image.network(snapshort.data![0].image),
-                            //Text(snapshort.data![index].nameChien ),
-                            //
-                             title: Text(snapshort.data![0].nameChien ,
-                                  //snapshort.data![index].nameChien,
-                                  style: const TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                  )),
-                              // ignore: prefer_interpolation_to_compose_strings
-                              subtitle: Text("age: "+snapshort.data![0].age.toString()),
-                            // snapshort.data![index].age.toString()),
-                            /* onTap: () {
-
                           
-                          Navigator.push(context,MaterialPageRoute(builder: (context) => SecondWidget(p1 : snapshort.data![index].id)),);
-                          
-                        }*/
-                        
-                          ),
+                          Text("    "),
+                         Image.network(snapshort.data![index].image,width: 400,height: 200,fit: BoxFit.contain),
+                         Text("    "),
+Padding(
+          padding:
+              EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
+          child: Text(
+            snapshort.data![index].nameChien,
+            style: Theme.of(context).textTheme.headline6,
+          ),
+        ),
+        
+        Padding(
+          padding: EdgeInsets.only(
+            left: getProportionateScreenWidth(20),
+            right: getProportionateScreenWidth(64),
+          ),
+          child: Text(
+            snapshort.data![index].description,
+            maxLines: 11,
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.symmetric(
+            horizontal: getProportionateScreenWidth(20),
+            vertical: 10,
+          ),
+          child: GestureDetector(
+            onTap: () {},
+            child: Row(
+              children: [
+                Text(
+                  "Age: "+ snapshort.data![index].age.toString(),
+                  style: TextStyle(
+                      fontWeight: FontWeight.w600, color: Color(0xFFFF7643)),
+                ),
+                SizedBox(width: 5),
+                Icon(
+                  Icons.arrow_forward_ios,
+                  size: 12,
+                  color: Color(0xFFFF7643),
+                ),
+              ],
+            ),
+          ),
+        ),
+
+
+                 
+                 Padding(
+              
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            child:GestureDetector(
+              onTap: () {
+                /*AlertDialog(title: Text("envoyer?"),content: Text("Do you accept?"),
+                actions: [
+                  CupertinoDialogAction(child: Text("no"),),
+                  CupertinoDialogAction(child: Text("yes"),),
+                ]
+      
+                );*/
+              },
+            child: Container(padding: EdgeInsets.all(10),
+            decoration: BoxDecoration(color: Color(0xFFFF7643),
+            borderRadius: BorderRadius.circular(9),
+            ),
+            child: Center(child: Text('envoyer demande',
+            style: TextStyle(color: Colors.white,
+            fontWeight: FontWeight.bold,
+            fontSize: 13),
+            ),
+            ),
+            ),
+            )
+            ),
+
                         ],
+   
                       ),
-                    );
+
+      padding:  EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
+      
+      
+      
+      //width: getProportionateScreenWidth(5),
+        
+     /* decoration: BoxDecoration(
+        color: Color.fromARGB(255, 0, 0, 0),
+        border:
+            Border.all(color: true ? Color(0xFFFF7643) : Colors.transparent),
+        
+        shape: BoxShape.circle,
+        
+        
+      ),*/
+      
+      /*child: DecoratedBox(
+        decoration: BoxDecoration(
+          color: Color.fromARGB(255, 0, 0, 0),
+          shape: BoxShape.circle,
+        ),
+      ),*/
+                      
+                    ); 
+                      
+
 
                    /*  },
                 )
@@ -232,18 +312,59 @@ class SecondWidget extends StatelessWidget {
             }
               ),
 
-              ),
+             /* ),*/
 
                 )
+                
           )
         )
+    )
       );
   }
   }
 
+/*
+
+
+  class ColorDot extends StatelessWidget {
+  const ColorDot({
+    Key? key,
+    required this.color,
+    this.isSelected = false,
+  }) : super(key: key);
+
+  final Color color;
+  final bool isSelected;
+  
+  get kPrimaryColor => null;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.only(right: 2),
+      padding: EdgeInsets.all(getProportionateScreenWidth(8)),
+      height: getProportionateScreenWidth(40),
+      width: getProportionateScreenWidth(40),
+      decoration: BoxDecoration(
+        color: Colors.transparent,
+        border:
+            Border.all(color: isSelected ? kPrimaryColor : Colors.transparent),
+        shape: BoxShape.circle,
+      ),
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          color: color,
+          shape: BoxShape.circle,
+        ),
+      ),
+    );
+  }
+}
+
+*/
 
               
-*/
+
 
 
 
