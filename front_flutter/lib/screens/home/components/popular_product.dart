@@ -33,7 +33,7 @@ import '../../details/components/custom_app_bar.dart';
  // List<dynamic> _chiens = [];
 //Future<void> async {
     Future<List<Chien>> fetchchiens() async {
-    Response response = await Dio().get('http://192.168.1.13:8090/chiens');
+    Response response = await Dio().get('http://192.168.1.4:8090/chiens');
     return (response.data as List).map((x) => Chien.fromJson(x)).toList();
   }
 
@@ -108,7 +108,7 @@ class PopularProducts extends StatelessWidget {
                                onTap: () {
 
                           
-                          Navigator.push(context,MaterialPageRoute(builder: (context) => SecondWidget(p1 : snapshort.data![index].id)),);
+                          Navigator.push(context,MaterialPageRoute(builder: (context) => SecondWidget(p1 : snapshort.data![index].idchien)),);
                           
                         }
                             // snapshort.data![index].age.toString()),
@@ -132,12 +132,12 @@ class PopularProducts extends StatelessWidget {
 }
 
 class SecondWidget extends StatelessWidget {
-     Object p1;
+     int p1;
      
     
      SecondWidget({this.p1= 0 });
      
-       get index => 0;
+       //get index => 0;
      
      
   @override
@@ -199,13 +199,13 @@ class SecondWidget extends StatelessWidget {
                         children: <Widget>[
                           
                           Text("    "),
-                         Image.network(snapshort.data![index].image,width: 400,height: 200,fit: BoxFit.contain),
+                         Image.network(snapshort.data![p1].image,width: 400,height: 200,fit: BoxFit.contain),
                          Text("    "),
 Padding(
           padding:
               EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
           child: Text(
-            snapshort.data![index].nameChien,
+            snapshort.data![p1].nameChien,
             style: Theme.of(context).textTheme.headline6,
           ),
         ),
@@ -216,7 +216,7 @@ Padding(
             right: getProportionateScreenWidth(64),
           ),
           child: Text(
-            snapshort.data![index].description,
+            snapshort.data![p1].description,
             maxLines: 11,
           ),
         ),
@@ -230,7 +230,7 @@ Padding(
             child: Row(
               children: [
                 Text(
-                  "Age: "+ snapshort.data![index].age.toString(),
+                  "Age: "+ snapshort.data![p1].age.toString(),
                   style: TextStyle(
                       fontWeight: FontWeight.w600, color: Color(0xFFFF7643)),
                 ),
