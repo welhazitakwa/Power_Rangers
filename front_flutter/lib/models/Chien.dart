@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class Chien {
    Object id;
    String nameChien, gender,color,image,description;
-   int age;
+   int age,idchien;
    bool state;
   
     Chien(this.id, this.nameChien, this.gender,
@@ -12,6 +12,7 @@ class Chien {
     this.description,
     //this.isFavourite = false,
      this.age,
+     this.idchien,
     this.state,
   );
  // final bool isFavourite, isPopular;
@@ -29,7 +30,7 @@ class Chien {
   });*/
 factory Chien.fromJson(Map<String, dynamic> json) {
     return Chien (json["_id"], json["nameChien"], json["gender"], 
-                 json["color"],json["image"],json["description"],json["age"],
+                 json["color"],json["image"],json["description"],json["age"],json["idchien"],
                  json["state"]);
   }
 }
