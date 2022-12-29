@@ -1,7 +1,7 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS ,HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -20,6 +20,7 @@ import { UpdateChienComponent } from './pages/update-chien/update-chien.componen
 import { DashboardVeterinaireComponent } from './pages/dashboard-veterinaire/dashboard-veterinaire.component';
 import { UpdateEtatComponent } from './pages/update-etat/update-etat.component';
 import { DetChienVeterComponent } from './pages/det-chien-veter/det-chien-veter.component';
+import {JwtInterceptor} from './interceptors/jwt-interceptor';
 
 
 @NgModule({
@@ -45,10 +46,10 @@ import { DetChienVeterComponent } from './pages/det-chien-veter/det-chien-veter.
     DashboardVeterinaireComponent,
     UpdateEtatComponent,
     DetChienVeterComponent,
-    
-    
+
+
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

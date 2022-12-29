@@ -8,16 +8,20 @@ declare interface RouteInfo {
     icon: string;
     class: string;
 }
-export const ROUTES: RouteInfo[] = [
-    { path: '/dashboard', title: 'Municipalités',  icon: 'ni-tv-2 text-primary', class: '' },
-    // {path:'/municipalite',title:'Municipalite' ,icon: 'ni-tv-2 text-primary', class: '' },
-   // { path: '/icons', title: 'Icons',  icon:'ni-planet text-blue', class: '' },
-   // { path: '/maps', title: 'Maps',  icon:'ni-pin-3 text-orange', class: '' },
-   // { path: '/user-profile', title: 'User profile',  icon:'ni-single-02 text-yellow', class: '' },
-    { path: '/tables', title: 'Chiens',  icon:'ni-bullet-list-67 text-red', class: '' },
-    { path: '/dashboard-veterinaire', title: 'Etat Chien',  icon:'ni-bullet-list-67 text-red', class: '' },
-   // { path: '/login', title: 'Login',  icon:'ni-key-25 text-info', class: '' },
-   // { path: '/register', title: 'Register',  icon:'ni-circle-08 text-pink', class: '' }
+export let ROUTES: RouteInfo[] = [
+  { path: '/dashboard', title: 'Municipalités',  icon: 'ni-tv-2 text-primary', class: '' },
+  { path: '/users', title: 'Users',  icon:'ni-bullet-list-67 text-red', class: '' },
+  { path: '/dashboard-veterinaire', title: 'Etat Chien',  icon:'ni-bullet-list-67 text-red', class: '' },
+  { path: '/tables', title: 'Chiens',  icon:'ni-bullet-list-67 text-red', class: '' },
+
+  // {path:'/municipalite',title:'Municipalite' ,icon: 'ni-tv-2 text-primary', class: '' },
+  // { path: '/icons', title: 'Icons',  icon:'ni-planet text-blue', class: '' },
+  // { path: '/maps', title: 'Maps',  icon:'ni-pin-3 text-orange', class: '' },
+  // { path: '/user-profile', title: 'User profile',  icon:'ni-single-02 text-yellow', class: '' },
+
+
+  // { path: '/login', title: 'Login',  icon:'ni-key-25 text-info', class: '' },
+  // { path: '/register', title: 'Register',  icon:'ni-circle-08 text-pink', class: '' }
 ];
 
 @Component({
@@ -33,6 +37,15 @@ export class SidebarComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
+    if (localStorage.getItem("Roles") == "[TECHNICIEN]") {
+      ROUTES = ROUTES.splice(3)
+    } else if (localStorage.getItem("Roles") == "[VETERINAIRE]") {
+      ROUTES = ROUTES.splice(2, 1)
+    } else if (localStorage.getItem("Roles") == "[MAIRE]") {
+      ROUTES = ROUTES.slice(1, 3)
+    } else if (localStorage.getItem("Roles") == "[ADMIN]") {
+      ROUTES = ROUTES.splice(0, 2)
+    }
     this.menuItems = ROUTES.filter(menuItem => menuItem);
     this.router.events.subscribe((event) => {
       this.isCollapsed = true;
