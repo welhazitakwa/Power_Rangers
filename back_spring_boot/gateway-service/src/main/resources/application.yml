@@ -1,0 +1,42 @@
+spring:
+    application:
+        name: gateway-service
+    cloud:
+        config:
+            enabled: true
+        gateway:
+            default-filters:
+            -   name: AuthConfig
+            globalcors:
+                cors-configurations:
+                    '[/**]':
+                        allowCredentials: true
+                        allowed-headers:
+                        - '*'
+                        allowed-methods:
+                        - GET
+                        - PUT
+                        - POST
+                        - DELETE
+                        allowed-origins:
+                        - "http://localhost:4200"
+            routes:
+            -   id: route1
+                predicates:
+                - Path=/dogs/**
+                uri: http://localhost:8081
+            -   id: route2
+                predicates:
+                - Path=/dogCategories/**
+                uri: http://localhost:8082
+            -   id: route3
+                predicates:
+                - Path=/auth/**
+                uri: http://localhost:8084
+            -   id: route4
+                predicates:
+                  - Path=/municipalites/**
+                uri: http://localhost:8091
+
+    config:
+        import: optional:configserver:http://localhost:8888
