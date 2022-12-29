@@ -119,10 +119,11 @@ class _EditProfilePageState extends State<EditProfilePage> {
                             letterSpacing: 2.2,
                             color: Colors.black)),
                   ),
-                  /*     ElevatedButton(
-                    style: ButtonStyle(color: Colors.green,
-                    padding: MaterialStateProperty.all(EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0)
-                    )),
+                  ElevatedButton(
+                    style: ButtonStyle(
+                        color: Colors.green,
+                        padding: MaterialStateProperty.all(EdgeInsets.symmetric(
+                            vertical: 20.0, horizontal: 50.0))),
                     onPressed: () {},
                     elevation: 2,
                     child: Text(
@@ -132,7 +133,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                           letterSpacing: 2.2,
                           color: Colors.white),
                     ),
-                  )*/
+                  )
                 ],
               )
             ],
