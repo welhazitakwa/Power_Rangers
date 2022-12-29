@@ -119,13 +119,13 @@ class _EditProfilePageState extends State<EditProfilePage> {
                             letterSpacing: 2.2,
                             color: Colors.black)),
                   ),
-                /*  ElevatedButton(
+                  ElevatedButton(
                     style: ButtonStyle(
-                        color: Colors.green,
+                        //backgroundColor: Color.fromARGB(255, 240, 169, 37) ,
+                        //colorSchemeSeed: kPrimaryColor, //Colors.green,
                         padding: MaterialStateProperty.all(EdgeInsets.symmetric(
                             vertical: 20.0, horizontal: 50.0))),
                     onPressed: () {},
-                    elevation: 2,
                     child: Text(
                       "SAVE",
                       style: TextStyle(
