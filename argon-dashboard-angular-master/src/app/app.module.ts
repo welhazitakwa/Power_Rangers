@@ -1,7 +1,7 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -20,7 +20,11 @@ import { UpdateChienComponent } from './pages/update-chien/update-chien.componen
 import { DashboardVeterinaireComponent } from './pages/dashboard-veterinaire/dashboard-veterinaire.component';
 import { UpdateEtatComponent } from './pages/update-etat/update-etat.component';
 import { DetChienVeterComponent } from './pages/det-chien-veter/det-chien-veter.component';
-
+import {JwtInterceptor} from './interceptors/jwt-interceptor';
+import {
+  GoogleLoginProvider,
+  FacebookLoginProvider, SocialLoginModule, SocialAuthServiceConfig
+} from 'angularx-social-login';
 
 @NgModule({
   imports: [
@@ -31,7 +35,8 @@ import { DetChienVeterComponent } from './pages/det-chien-veter/det-chien-veter.
     NgbModule,
     RouterModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SocialLoginModule
   ],
   declarations: [
     AppComponent,
@@ -45,10 +50,28 @@ import { DetChienVeterComponent } from './pages/det-chien-veter/det-chien-veter.
     DashboardVeterinaireComponent,
     UpdateEtatComponent,
     DetChienVeterComponent,
-    
-    
+
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '735981164925-arf5lgjejdukdnsfp6s8mb8jvdklipar.apps.googleusercontent.com'
+            )
+          },
+        ],
+        onError: (err) => {
+          console.error(err);
+        }
+      } as SocialAuthServiceConfig,
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
