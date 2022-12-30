@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:shop_app/screens/home/home_screen.dart';
+import 'package:shop_app/screens/sign_up/components/user.dart';
 import '../../../constants.dart';
-
+import '../../../helper/storage.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 class SettingsUI extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -19,6 +23,31 @@ class EditProfilePage extends StatefulWidget {
 
 class _EditProfilePageState extends State<EditProfilePage> {
   bool showPassword = false;
+  String _token = "";
+  User u = User("", "", "", "", 0);
+  @override
+  void initState() {
+    super.initState();
+    fetchSecureStorageData();
+  }
+
+  Future<void> fetchSecureStorageData() async {
+    _token = await storage.read(key: "jwt") ?? '';
+     await fetUserData();
+  }
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController muniController = TextEditingController();
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is disposed.
+    emailController.dispose();
+    nameController.dispose();
+    passwordController.dispose();
+    muniController.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -98,10 +127,10 @@ class _EditProfilePageState extends State<EditProfilePage> {
               SizedBox(
                 height: 35,
               ),
-              buildTextField("Fulm Name", "Eya Zribi", false),
-              buildTextField("E-mail", "EyaZribi@gmail.com", false),
-              buildTextField("Password", "********", true),
-              buildTextField("Location", "BenArous, Tunisia", false),
+              buildTextField("Full Name", u.name, false),
+              buildTextField("E-mail", u.email, false),
+              buildTextField("Password", "", true),
+              buildTextField("Location", u.municipalite, false),
               SizedBox(
                 height: 35,
               ),
@@ -112,7 +141,9 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     style: ButtonStyle(
                         padding: MaterialStateProperty.all(EdgeInsets.symmetric(
                             vertical: 20.0, horizontal: 50.0))),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, HomeScreen.routeName);
+                    },
                     child: Text("CANCEL",
                         style: TextStyle(
                             fontSize: 14,
@@ -125,7 +156,9 @@ class _EditProfilePageState extends State<EditProfilePage> {
                         //colorSchemeSeed: kPrimaryColor, //Colors.green,
                         padding: MaterialStateProperty.all(EdgeInsets.symmetric(
                             vertical: 20.0, horizontal: 50.0))),
-                    onPressed: () {},
+                    onPressed: () {
+                      save(emailController, passwordController, nameController, muniController);
+                    },
                     child: Text(
                       "SAVE",
                       style: TextStyle(
@@ -145,10 +178,15 @@ class _EditProfilePageState extends State<EditProfilePage> {
 
   Widget buildTextField(
       String labelText, String placeholder, bool isPasswordTextField) {
+    print("we are in buildText and the placeholder is " + placeholder);
     return Padding(
       padding: const EdgeInsets.only(bottom: 35.0),
       child: TextField(
         obscureText: isPasswordTextField ? showPassword : false,
+        controller: labelText == "E-mail" ? emailController : labelText == "Full Name" ? nameController : labelText == "Password" ? passwordController : muniController,
+        // controller:  TextEditingController(
+        //     text: placeholder,
+        // ),
         decoration: InputDecoration(
             suffixIcon: isPasswordTextField
                 ? IconButton(
@@ -165,14 +203,58 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 : null,
             contentPadding: EdgeInsets.only(bottom: 3),
             labelText: labelText,
-            floatingLabelBehavior: FloatingLabelBehavior.always,
             hintText: placeholder,
-            hintStyle: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
-              color: Colors.black,
-            )),
+
+            floatingLabelBehavior: FloatingLabelBehavior.always,
+            // hintStyle: TextStyle(
+            //   fontSize: 16,
+            //   fontWeight: FontWeight.bold,
+            //   color: Colors.black,
+            // )
+        ),
       ),
     );
+  }
+
+  Future<void> fetUserData() async {
+    print("the value of token fetching " + _token);
+    var res = await http.get(Uri.parse("http://localhost:8084/auth/user"),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+          'Authorization': 'Bearer ' + _token
+        },
+    );
+
+    print("the value of body response " + res.body);
+    final parsed = jsonDecode(res.body).cast<String, Object?>();
+    setState(() {
+      u.password = parsed['password'] as String;
+      u.name = parsed['name'] as String;
+      u.municipalite = parsed['municpalite'] as String;
+      u.email = parsed['email'] as String;
+      u.id = parsed['id'] as int;
+      emailController.text = u.email;
+      nameController.text = u.name;
+      muniController.text = u.municipalite;
+    });
+  }
+
+  Future<void> save(TextEditingController emailController, TextEditingController password, TextEditingController name, TextEditingController muni) async {
+    print("the value of password " + password.text);
+    var res = await http.put(
+        Uri.parse("http://localhost:8084/auth/user"),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+        'Authorization': 'Bearer ' + _token
+      },
+      body: jsonEncode(<String, String>{
+        'id': u.id.toString(),
+        'email': emailController.text,
+        'password': password.text,
+        'name': name.text,
+        'municpalite': muni.text
+      }),
+    );
+    Navigator.pushNamed(context, HomeScreen.routeName);
   }
 }

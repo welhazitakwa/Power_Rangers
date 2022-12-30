@@ -71,7 +71,6 @@ public class AuthenticationController {
 //                    .sign(algo);
 
 
-
              response.setHeader("Authorization", jwt);
              response.setHeader("Roles", u.getAuthorities().toString());
             response.addHeader("Access-Control-Expose-Headers", "Authorization");
@@ -101,6 +100,8 @@ public class AuthenticationController {
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
+        Role r = roleRepository.findByName("CIVIL").get();
+        user.setRoles(r);
         return new ResponseEntity<>(this.userRepository.save(user), HttpStatus.OK);
     }
     @GetMapping("/token/{token}")
@@ -118,7 +119,18 @@ public class AuthenticationController {
         String email = claims.get("sub").toString();
         return new ResponseEntity<>(userRepository.findByEmail(email), HttpStatus.OK);
     }
-
+    @PutMapping("/user")
+    public void updateUser(@RequestBody User u) {
+        System.out.println("the value of id " + u.getId());
+        User u1 = userRepository.findById(u.getId()).get();
+        if (!u.getPassword().equals("")) {
+            u1.setPassword(passwordEncoder.encode(u.getPassword()));
+        }
+        u1.setEmail(u.getEmail());
+        u1.setName(u.getName());
+        u1.setMunicpalite(u.getMunicpalite());
+        userRepository.save(u1);
+    }
     @GetMapping("/employee/all")
     public ResponseEntity<?> getEmployees() {
         return new ResponseEntity<>(this.userRepository.findAll(), HttpStatus.OK);
