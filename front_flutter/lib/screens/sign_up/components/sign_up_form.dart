@@ -1,9 +1,14 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:shop_app/components/custom_surfix_icon.dart';
 import 'package:shop_app/components/default_button.dart';
 import 'package:shop_app/components/form_error.dart';
 import 'package:shop_app/screens/complete_profile/complete_profile_screen.dart';
-
+import '../../home/home_screen.dart';
+import '../../sign_in/sign_in_screen.dart';
+import  './user.dart';
+import 'package:http/http.dart' as http;
 import '../../../constants.dart';
 import '../../../size_config.dart';
 
@@ -15,11 +20,43 @@ class SignUpForm extends StatefulWidget {
 
 class _SignUpFormState extends State<SignUpForm> {
   final _formKey = GlobalKey<FormState>();
+  String? name;
+  String? municipalite;
   String? email;
   String? password;
   String? conform_password;
   bool remember = false;
   final List<String?> errors = [];
+
+  User user = User("", "","", "", 0);
+  String url = "http://localhost:8084/auth/register";
+
+  Future save() async {
+    print("the values are name " + user.name + " munic " + user.municipalite! + " email " + user.email + " password " + user.password);
+    try {
+      var res = await http.post(Uri.parse(url),
+          headers: <String, String>{
+            'Content-Type': 'application/json; charset=UTF-8',
+          },
+          body: jsonEncode(<String, String>{
+            'name': user.name,
+            'municpalite': user.municipalite,
+            'email': user.email,
+            'password': user.password
+          }
+          )
+      );
+      if (res.statusCode == 200) {
+        Navigator.pushNamed(context, SignInScreen.routeName);
+      }
+    } catch(e) {
+      print("the errors ya m3allem " + e.toString());
+    }
+    // print("the errors " + res.toString());
+    // if (res.body != null) {
+    //   Navigator.pop(context);
+    // }
+  }
 
   void addError({String? error}) {
     if (!errors.contains(error))
@@ -35,34 +72,6 @@ class _SignUpFormState extends State<SignUpForm> {
       });
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Form(
-      key: _formKey,
-      child: Column(
-        children: [
-          buildEmailFormField(),
-          SizedBox(height: getProportionateScreenHeight(30)),
-          buildPasswordFormField(),
-          SizedBox(height: getProportionateScreenHeight(30)),
-          buildConformPassFormField(),
-          FormError(errors: errors),
-          SizedBox(height: getProportionateScreenHeight(40)),
-          DefaultButton(
-            text: "Continue",
-            press: () {
-              if (_formKey.currentState!.validate()) {
-                _formKey.currentState!.save();
-                // if all are valid then go to success screen
-                Navigator.pushNamed(context, CompleteProfileScreen.routeName);
-              }
-            },
-          ),
-        ],
-      ),
-    );
-  }
-
   TextFormField buildConformPassFormField() {
     return TextFormField(
       obscureText: true,
@@ -70,7 +79,7 @@ class _SignUpFormState extends State<SignUpForm> {
       onChanged: (value) {
         if (value.isNotEmpty) {
           removeError(error: kPassNullError);
-        } else if (value.isNotEmpty && password == conform_password) {
+        } else if (value.isNotEmpty && user.password == conform_password) {
           removeError(error: kMatchPassError);
         }
         conform_password = value;
@@ -79,7 +88,7 @@ class _SignUpFormState extends State<SignUpForm> {
         if (value!.isEmpty) {
           addError(error: kPassNullError);
           return "";
-        } else if ((password != value)) {
+        } else if ((user.password != value)) {
           addError(error: kMatchPassError);
           return "";
         }
@@ -95,7 +104,6 @@ class _SignUpFormState extends State<SignUpForm> {
       ),
     );
   }
-
   TextFormField buildPasswordFormField() {
     return TextFormField(
       obscureText: true,
@@ -106,7 +114,7 @@ class _SignUpFormState extends State<SignUpForm> {
         } else if (value.length >= 8) {
           removeError(error: kShortPassError);
         }
-        password = value;
+        user.password = value;
       },
       validator: (value) {
         if (value!.isEmpty) {
@@ -128,7 +136,58 @@ class _SignUpFormState extends State<SignUpForm> {
       ),
     );
   }
-
+  TextFormField buildNameFormField() {
+    return TextFormField(
+      onSaved: (newValue) => name = newValue,
+      onChanged: (value) {
+        if (value.isNotEmpty) {
+          removeError(error: kNamelNullError);
+        }
+        user.name = value;
+      },
+      validator: (value) {
+        if (value!.isEmpty) {
+          addError(error: kNamelNullError);
+          return "";
+        }
+        return null;
+      },
+      decoration: InputDecoration(
+        labelText: "name",
+        hintText: "Enter your name",
+        // If  you are using latest version of flutter then lable text and hint text shown like this
+        // if you r using flutter less then 1.20.* then maybe this is not working properly
+        floatingLabelBehavior: FloatingLabelBehavior.always,
+        suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/User.svg"),
+      ),
+    );
+  }
+  TextFormField buildMunicipaliteFormField() {
+    return TextFormField(
+      onSaved: (newValue) => municipalite = newValue,
+      onChanged: (value) {
+        if (value.isNotEmpty) {
+          removeError(error: kMunicipalitelNullError);
+        }
+        user.municipalite = value;
+      },
+      validator: (value) {
+        if (value!.isEmpty) {
+          addError(error: kMunicipalitelNullError);
+          return "";
+        }
+        return null;
+      },
+      decoration: InputDecoration(
+        labelText: "Municipalité",
+        hintText: "Enter your Municipalité",
+        // If  you are using latest version of flutter then lable text and hint text shown like this
+        // if you r using flutter less then 1.20.* then maybe this is not working properly
+        floatingLabelBehavior: FloatingLabelBehavior.always,
+        suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/User.svg"),
+      ),
+    );
+  }
   TextFormField buildEmailFormField() {
     return TextFormField(
       keyboardType: TextInputType.emailAddress,
@@ -139,7 +198,7 @@ class _SignUpFormState extends State<SignUpForm> {
         } else if (emailValidatorRegExp.hasMatch(value)) {
           removeError(error: kInvalidEmailError);
         }
-        return null;
+        user.email = value;
       },
       validator: (value) {
         if (value!.isEmpty) {
@@ -158,6 +217,39 @@ class _SignUpFormState extends State<SignUpForm> {
         // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,
         suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Mail.svg"),
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      key: _formKey,
+      child: Column(
+        children: [
+          buildNameFormField(),
+          SizedBox(height: getProportionateScreenHeight(10)),
+          buildEmailFormField(),
+          SizedBox(height: getProportionateScreenHeight(10)),
+          buildMunicipaliteFormField(),
+          SizedBox(height: getProportionateScreenHeight(10)),
+          buildPasswordFormField(),
+          SizedBox(height: getProportionateScreenHeight(10)),
+          buildConformPassFormField(),
+          FormError(errors: errors),
+          SizedBox(height: getProportionateScreenHeight(10)),
+          DefaultButton(
+            text: "Continue",
+            press: () {
+              if (_formKey.currentState!.validate()) {
+                save();
+                // _formKey.currentState!.save();
+                // if all are valid then go to success screen
+                // Navigator.pushNamed(context, CompleteProfileScreen.routeName);
+              }
+            },
+          ),
+        ],
       ),
     );
   }

@@ -20,7 +20,7 @@
   <modules>
     <module>common</module>
     <module>config-server</module>
-
+    <module>security</module>
   </modules>
   <dependencyManagement>
     <dependencies>
