@@ -1,13 +1,18 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:shop_app/components/custom_surfix_icon.dart';
 import 'package:shop_app/components/form_error.dart';
 import 'package:shop_app/helper/keyboard.dart';
 import 'package:shop_app/screens/forgot_password/forgot_password_screen.dart';
+import 'package:shop_app/screens/home/components/home_header.dart';
+import 'package:shop_app/screens/home/home_screen.dart';
 import 'package:shop_app/screens/login_success/login_success_screen.dart';
-
+import 'package:http/http.dart' as http;
 import '../../../components/default_button.dart';
 import '../../../constants.dart';
 import '../../../size_config.dart';
+import '../../sign_up/components/user.dart';
 
 class SignForm extends StatefulWidget {
   @override
@@ -20,7 +25,7 @@ class _SignFormState extends State<SignForm> {
   String? password;
   bool? remember = false;
   final List<String?> errors = [];
-
+  User user = User("", "","", "");
   void addError({String? error}) {
     if (!errors.contains(error))
       setState(() {
@@ -33,6 +38,36 @@ class _SignFormState extends State<SignForm> {
       setState(() {
         errors.remove(error);
       });
+  }
+  String url = "http://localhost:8084/auth/login";
+
+  Future save() async {
+    print("the values are name " + user.name + " munic " + user.municipalite! + " email " + user.email + " password " + user.password);
+    try {
+      var res = await http.post(Uri.parse(url),
+          headers: <String, String>{
+            'Content-Type': 'application/json; charset=UTF-8',
+          },
+          body: jsonEncode(<String, String>{
+            'email': user.email,
+            'password': user.password
+          }
+          )
+      );
+      if (res.statusCode == 200) {
+        Navigator.pushNamed(context, LoginSuccessScreen.routeName);
+      } else {
+        final parsed = jsonDecode(res.body).cast<String, String>();
+        addError(error: parsed['msg']);
+        print("the errors ${parsed['msg']}");
+      }
+    } catch(e) {
+      print("the errors ya m3allem " + e.toString());
+    }
+    // print("the errors " + res.toString());
+    // if (res.body != null) {
+    //   Navigator.pop(context);
+    // }
   }
 
   @override
@@ -74,10 +109,10 @@ class _SignFormState extends State<SignForm> {
             text: "Continue",
             press: () {
               if (_formKey.currentState!.validate()) {
-                _formKey.currentState!.save();
+                save();
                 // if all are valid then go to success screen
-                KeyboardUtil.hideKeyboard(context);
-                Navigator.pushNamed(context, LoginSuccessScreen.routeName);
+                // KeyboardUtil.hideKeyboard(context);
+                // Navigator.pushNamed(context, LoginSuccessScreen.routeName);
               }
             },
           ),
@@ -96,7 +131,7 @@ class _SignFormState extends State<SignForm> {
         } else if (value.length >= 8) {
           removeError(error: kShortPassError);
         }
-        return null;
+        user.password = value;
       },
       validator: (value) {
         if (value!.isEmpty) {
@@ -129,7 +164,7 @@ class _SignFormState extends State<SignForm> {
         } else if (emailValidatorRegExp.hasMatch(value)) {
           removeError(error: kInvalidEmailError);
         }
-        return null;
+        user.email = value;
       },
       validator: (value) {
         if (value!.isEmpty) {
@@ -149,6 +184,17 @@ class _SignFormState extends State<SignForm> {
         floatingLabelBehavior: FloatingLabelBehavior.always,
         suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Mail.svg"),
       ),
+    );
+  }
+}
+
+class error {
+  final String msg;
+  const error({required this.msg});
+  factory error.fromJson(Map<String, String> json) {
+    print("the json is  " + json.toString());
+    return error(
+      msg: json['msg'] as String,
     );
   }
 }

@@ -4,6 +4,7 @@ import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.example.security.entity.Role;
 import com.example.security.entity.User;
+import com.example.security.model.UserModeFlutter;
 import com.example.security.model.UserModel;
 import com.example.security.model.UserModelRegister;
 import com.example.security.repository.RoleRepository;
@@ -97,6 +98,11 @@ public class AuthenticationController {
 
     }
 
+    @PostMapping("/register")
+    public ResponseEntity<?> register(@RequestBody User user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        return new ResponseEntity<>(this.userRepository.save(user), HttpStatus.OK);
+    }
     @GetMapping("/token/{token}")
     public String getRoles(@PathVariable String token) {
         System.out.println("the token is " + token);
