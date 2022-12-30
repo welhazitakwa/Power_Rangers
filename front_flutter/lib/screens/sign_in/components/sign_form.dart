@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:shop_app/components/custom_surfix_icon.dart';
 import 'package:shop_app/components/form_error.dart';
@@ -13,7 +12,7 @@ import '../../../components/default_button.dart';
 import '../../../constants.dart';
 import '../../../size_config.dart';
 import '../../sign_up/components/user.dart';
-
+import '../../../helper/storage.dart';
 class SignForm extends StatefulWidget {
   @override
   _SignFormState createState() => _SignFormState();
@@ -25,7 +24,7 @@ class _SignFormState extends State<SignForm> {
   String? password;
   bool? remember = false;
   final List<String?> errors = [];
-  User user = User("", "","", "");
+  User user = User("", "","", "", 0);
   void addError({String? error}) {
     if (!errors.contains(error))
       setState(() {
@@ -42,7 +41,7 @@ class _SignFormState extends State<SignForm> {
   String url = "http://localhost:8084/auth/login";
 
   Future save() async {
-    print("the values are name " + user.name + " munic " + user.municipalite! + " email " + user.email + " password " + user.password);
+    print("the values are name " + user.name + " munic " + user.municipalite + " email " + user.email + " password " + user.password);
     try {
       var res = await http.post(Uri.parse(url),
           headers: <String, String>{
@@ -55,6 +54,8 @@ class _SignFormState extends State<SignForm> {
           )
       );
       if (res.statusCode == 200) {
+        print("the value of token " + res.headers.toString());
+        await saveToken(res);
         Navigator.pushNamed(context, LoginSuccessScreen.routeName);
       } else {
         final parsed = jsonDecode(res.body).cast<String, String>();
@@ -68,6 +69,11 @@ class _SignFormState extends State<SignForm> {
     // if (res.body != null) {
     //   Navigator.pop(context);
     // }
+  }
+
+  Future<void> saveToken(http.Response res) async {
+    await storage.write(key: 'jwt', value: res.headers['authorization']);
+    String token = await storage.read(key: 'jwt') ?? '';
   }
 
   @override

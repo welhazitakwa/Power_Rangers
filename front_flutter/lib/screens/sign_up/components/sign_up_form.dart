@@ -28,7 +28,7 @@ class _SignUpFormState extends State<SignUpForm> {
   bool remember = false;
   final List<String?> errors = [];
 
-  User user = User("", "","", "");
+  User user = User("", "","", "", 0);
   String url = "http://localhost:8084/auth/register";
 
   Future save() async {
@@ -40,7 +40,7 @@ class _SignUpFormState extends State<SignUpForm> {
           },
           body: jsonEncode(<String, String>{
             'name': user.name,
-            'municipalite': user.municipalite,
+            'municpalite': user.municipalite,
             'email': user.email,
             'password': user.password
           }

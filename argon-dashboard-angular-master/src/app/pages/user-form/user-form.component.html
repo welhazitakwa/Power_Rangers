@@ -1,0 +1,189 @@
+<div class="header bg-gradient-danger pb-4 pt-5 pt-md-4">
+  <app-navbar></app-navbar>
+  <app-sidebar></app-sidebar>
+</div>
+
+<div class="container" style="margin-left: 450px">
+  <div class="row align-items-center">
+    <div class="col-xl-8 order-xl-1">
+      <br>
+      <div class="card shadow">
+        <div class="card-header bg-white border-0">
+          <div class="row align-items-center">
+            <div class="col-8">
+              <h3 class="mb-0">Ajouter utlisateurs</h3>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+
+
+
+          <form #UserForm [formGroup]="userForm" autocomplete="off">
+            <div class="pl-lg-4">
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="nom">Nom de l'utlisateur</label>
+                    <input
+                      type="text"
+                      class="form-control form-control-alternative"
+                      placeholder="Nom"
+                      [(ngModel)]="user.name"
+                      formControlName="name"
+                    >
+                    <div class="alert " *ngIf="userForm.get('name').touched && !userForm.get('name').valid">
+                      <span class="error" *ngIf="userForm.get('name').errors.required"><i class="fa fa-exclamation-circle"></i> required  </span>
+                      <span class="error" *ngIf="userForm.get('name').errors.minlength"><i class="fa fa-exclamation-circle"></i> le nom doit contenir 5 caractéres au minimum </span>
+                    </div>
+                    <!--
+                    <span ng-show="myForm.$submitted || myForm.nameChien.$dirty">
+                   <span class="error" ng-show="myForm.nameChien.$error.required">
+                        <i class="fa fa-exclamation-circle"></i> le nom  </span>
+                    </span>-->
+                  </div>
+
+                </div>
+
+
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="email">email</label>
+                    <!--    <input #imageInput
+                   type="file"
+                   accept="image/*"
+                   (change)="processFile(imageInput)">
+//(change)="onFileSelected($event)"-->
+                    <input class="form-control form-control-alternative "
+                           id="email"
+                           formControlName="email"
+                           [(ngModel)]="user.email"
+                           type="email" >
+                    <div class="alert " *ngIf="userForm.get('email').touched && !userForm.get('email').valid">
+                  <span class="error" *ngIf="userForm.get('email').errors.required"><i
+                    class="fa fa-exclamation-circle"></i>
+                    required
+                  </span>
+                      <span class="error" *ngIf="userForm.get('email').errors.email"><i
+                        class="fa fa-exclamation-circle"></i>
+                    please enter a valid email
+                  </span>
+                      <!--                  <span class="error" *ngIf="desc.errors.minlength"><i class="fa fa-exclamation-circle"></i> Essayer de donner une description plus détaillé !!  </span>-->
+                    </div>
+                  </div>
+                </div>
+
+
+
+                <!--
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label class="form-control-label" for="state">Etat Sanitaire</label>
+                  <input type="text" id="state" class="form-control form-control-alternative"
+                   placeholder="Etat Sanitaire"
+                   [(ngModel)]="chien.state" >
+                </div>
+             </div> -->
+              </div>
+            </div>
+
+            <div class="pl-lg-4">
+              <div class="row">
+
+              </div>
+            </div>
+            <hr class="my-4" />
+            <!-- Description -->
+
+            <div class="pl-lg-4">
+
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="">image</label>
+                    <input type="file"  class="form-control form-control-alternative"
+                           formControlName="image"
+                           (change)="change($event)"
+                    >
+
+                    <div class="alert " *ngIf="userForm.get('image').touched && !userForm.get('image').valid">
+                      <span class="error" *ngIf="userForm.get('image').errors.required"><i
+                        class="fa fa-exclamation-circle"></i> required  </span>
+                    </div>
+                    <img id="image2" src="assets/img/default.jpeg" style="height: 200px; width: 200px;
+                    margin-top: 50px">
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="pl-lg-4">
+              <div class="form-group">
+                <label>jobTitle</label>
+                <select class="form-control form-control-alternative" formControlName="roles">
+                  <option></option>
+                  <ng-container *ngFor="let role of roles">
+                    <option [selected]="employee && employee.roles.id == role.id" [id]="role">{{role.name}}</option>
+                  </ng-container>
+
+                </select>
+                <div class="alert " *ngIf="userForm.get('roles').touched && !userForm.get('roles').valid">
+                  <span class="error" *ngIf="userForm.get('roles').errors.required"><i
+                    class="fa fa-exclamation-circle"></i> required  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="pl-lg-4">
+              <div class="form-group">
+                <label>Municipalite</label>
+                <select class="form-control form-control-alternative" formControlName="municpalite"
+                        >
+                  <option></option>
+                  <ng-container  *ngFor="let muni of municipalites">
+                    <option
+                      [selected]="employee && muni.name == employee.municipalite"
+                      [id]="muni">{{muni.nameMunicipalite}}</option>
+                  </ng-container>
+
+                </select>
+                <div class="alert " *ngIf="userForm.get('municpalite').touched && !userForm.get('municpalite').valid">
+                  <span class="error" *ngIf="userForm.get('municpalite').errors.required"><i
+                    class="fa fa-exclamation-circle"></i> required  </span>
+                </div>
+              </div>
+            </div>
+
+            <button (click)="saveUser()" type="submit" class="btn btn-primary " >Ajouter</button>
+
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+</div>
