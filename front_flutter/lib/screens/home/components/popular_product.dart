@@ -33,7 +33,7 @@ import '../../details/components/custom_app_bar.dart';
  // List<dynamic> _chiens = [];
 //Future<void> async {
     Future<List<Chien>> fetchchiens() async {
-    Response response = await Dio().get('http://192.168.1.4:8090/chiens');
+    Response response = await Dio().get('http://192.168.1.18:8090/chiens');
     return (response.data as List).map((x) => Chien.fromJson(x)).toList();
   }
 

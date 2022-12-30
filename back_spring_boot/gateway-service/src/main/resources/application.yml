@@ -36,7 +36,11 @@ spring:
             -   id: route4
                 predicates:
                   - Path=/municipalites/**
-                uri: http://localhost:8091
+                uri: http://localhost:8090
+            -   id: route5
+                predicates:
+                  - Path=/chiens/**
+                uri: http://localhost:8090
 
     config:
         import: optional:configserver:http://localhost:8888
