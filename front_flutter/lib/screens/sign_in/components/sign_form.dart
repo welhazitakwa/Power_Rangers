@@ -13,6 +13,7 @@ import '../../../constants.dart';
 import '../../../size_config.dart';
 import '../../sign_up/components/user.dart';
 import '../../../helper/storage.dart';
+
 class SignForm extends StatefulWidget {
   @override
   _SignFormState createState() => _SignFormState();
@@ -24,7 +25,7 @@ class _SignFormState extends State<SignForm> {
   String? password;
   bool? remember = false;
   final List<String?> errors = [];
-  User user = User("", "","", "", 0);
+  User user = User("", "", "", "", 0);
   void addError({String? error}) {
     if (!errors.contains(error))
       setState(() {
@@ -38,10 +39,18 @@ class _SignFormState extends State<SignForm> {
         errors.remove(error);
       });
   }
+
   String url = "http://localhost:8084/auth/login";
 
   Future save() async {
-    print("the values are name " + user.name + " munic " + user.municipalite + " email " + user.email + " password " + user.password);
+    print("the values are name " +
+        user.name +
+        " munic " +
+        user.municipalite +
+        " email " +
+        user.email +
+        " password " +
+        user.password);
     try {
       var res = await http.post(Uri.parse(url),
           headers: <String, String>{
@@ -50,9 +59,7 @@ class _SignFormState extends State<SignForm> {
           body: jsonEncode(<String, String>{
             'email': user.email,
             'password': user.password
-          }
-          )
-      );
+          }));
       if (res.statusCode == 200) {
         print("the value of token " + res.headers.toString());
         await saveToken(res);
@@ -62,7 +69,7 @@ class _SignFormState extends State<SignForm> {
         addError(error: parsed['msg']);
         print("the errors ${parsed['msg']}");
       }
-    } catch(e) {
+    } catch (e) {
       print("the errors ya m3allem " + e.toString());
     }
     // print("the errors " + res.toString());

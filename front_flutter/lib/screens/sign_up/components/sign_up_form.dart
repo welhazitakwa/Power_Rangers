@@ -42,7 +42,7 @@ class _SignUpFormState extends State<SignUpForm> {
     try {
       var res = await http.post(Uri.parse(url),
           headers: <String, String>{
-            'Content-Type': 'application/json; charset=UTF-8',
+            "Content-Type": "application/json; charset=UTF-8",
             "Access-Control-Allow-Origin": "*",
           },
           body: jsonEncode(<String, String>{
