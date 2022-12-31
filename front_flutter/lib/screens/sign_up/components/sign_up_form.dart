@@ -7,11 +7,10 @@ import 'package:shop_app/components/form_error.dart';
 import 'package:shop_app/screens/complete_profile/complete_profile_screen.dart';
 import '../../home/home_screen.dart';
 import '../../sign_in/sign_in_screen.dart';
-import  './user.dart';
+import './user.dart';
 import 'package:http/http.dart' as http;
 import '../../../constants.dart';
 import '../../../size_config.dart';
-
 
 class SignUpForm extends StatefulWidget {
   @override
@@ -28,28 +27,34 @@ class _SignUpFormState extends State<SignUpForm> {
   bool remember = false;
   final List<String?> errors = [];
 
-  User user = User("", "","", "", 0);
+  User user = User("", "", "", "", 0);
   String url = "http://localhost:8084/auth/register";
 
   Future save() async {
-    print("the values are name " + user.name + " munic " + user.municipalite! + " email " + user.email + " password " + user.password);
+    print("the values are name " +
+        user.name +
+        " munic " +
+        user.municipalite! +
+        " email " +
+        user.email +
+        " password " +
+        user.password);
     try {
       var res = await http.post(Uri.parse(url),
           headers: <String, String>{
-            'Content-Type': 'application/json; charset=UTF-8',
+            "Content-Type": "application/json; charset=UTF-8",
+            "Access-Control-Allow-Origin": "*",
           },
           body: jsonEncode(<String, String>{
             'name': user.name,
             'municpalite': user.municipalite,
             'email': user.email,
             'password': user.password
-          }
-          )
-      );
+          }));
       if (res.statusCode == 200) {
         Navigator.pushNamed(context, SignInScreen.routeName);
       }
-    } catch(e) {
+    } catch (e) {
       print("the errors ya m3allem " + e.toString());
     }
     // print("the errors " + res.toString());
@@ -104,6 +109,7 @@ class _SignUpFormState extends State<SignUpForm> {
       ),
     );
   }
+
   TextFormField buildPasswordFormField() {
     return TextFormField(
       obscureText: true,
@@ -136,6 +142,7 @@ class _SignUpFormState extends State<SignUpForm> {
       ),
     );
   }
+
   TextFormField buildNameFormField() {
     return TextFormField(
       onSaved: (newValue) => name = newValue,
@@ -162,6 +169,7 @@ class _SignUpFormState extends State<SignUpForm> {
       ),
     );
   }
+
   TextFormField buildMunicipaliteFormField() {
     return TextFormField(
       onSaved: (newValue) => municipalite = newValue,
@@ -188,6 +196,7 @@ class _SignUpFormState extends State<SignUpForm> {
       ),
     );
   }
+
   TextFormField buildEmailFormField() {
     return TextFormField(
       keyboardType: TextInputType.emailAddress,
