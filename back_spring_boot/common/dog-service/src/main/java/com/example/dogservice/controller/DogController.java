@@ -1,18 +1,24 @@
 package com.example.dogservice.controller;
 
+import com.example.dogservice.entities.Adoption;
 import com.example.dogservice.entities.Dog;
+import com.example.dogservice.services.AdoptionService;
 import com.example.dogservice.services.DogService;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("dogs")
 public class DogController {
 
     private final DogService service;
+    private final AdoptionService serviceAdoption;
 
-    public DogController(DogService service) {
+    public DogController(DogService service, AdoptionService serviceAdoption) {
         this.service = service;
+        this.serviceAdoption = serviceAdoption;
     }
 
     @GetMapping("/list_dogs")
@@ -32,7 +38,10 @@ public class DogController {
     ) {
         return service.findByCategory(size, nb, id);
     }
-
+    @GetMapping("/Adoption")
+    public List<Adoption> findAllAdoption() {
+        return serviceAdoption.findAll();
+    }
     @GetMapping("/name")
     public Page<Dog> findByContainingName(
             @RequestParam("size") int size,
