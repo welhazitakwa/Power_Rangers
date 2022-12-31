@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app/screens/sign_in/sign_in_screen.dart';
-
+import 'package:shop_app/screens/splash/splash_screen.dart';
 import 'edit_profile.dart';
 import 'profile_menu.dart';
 import 'profile_pic.dart';
@@ -44,7 +44,7 @@ class Body extends StatelessWidget {
             icon: "assets/icons/Log out.svg",
             press: () {
               Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: (context) => SignInScreen()));
+                  MaterialPageRoute(builder: (context) => SplashScreen()));
             },
           ),
         ],
