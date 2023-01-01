@@ -1,21 +1,24 @@
 import 'package:flutter/material.dart';
 
 class Chien {
-   Object id;
-   String nameChien, gender,color,image,description;
-   int age,idchien;
-   bool state;
-  
-    Chien(this.id, this.nameChien, this.gender,
+  Object id;
+  String nameChien, gender, color, image, description;
+  int age, idchien;
+  bool state;
+
+  Chien(
+    this.id,
+    this.nameChien,
+    this.gender,
     this.color,
-     this.image,
+    this.image,
     this.description,
     //this.isFavourite = false,
-     this.age,
-     this.idchien,
+    this.age,
+    this.idchien,
     this.state,
   );
- // final bool isFavourite, isPopular;
+  // final bool isFavourite, isPopular;
 /*
   Product({
     required this.id,
@@ -28,10 +31,17 @@ class Chien {
     required this.price,
     required this.description,
   });*/
-factory Chien.fromJson(Map<String, dynamic> json) {
-    return Chien (json["_id"], json["nameChien"], json["gender"], 
-                 json["color"],json["image"],json["description"],json["age"],json["idchien"],
-                 json["state"]);
+  factory Chien.fromJson(Map<String, dynamic> json) {
+    return Chien(
+        json["_id"],
+        json["nameChien"],
+        json["gender"],
+        json["color"],
+        json["image"],
+        json["description"],
+        json["age"],
+        json["idchien"],
+        json["state"]);
   }
 }
 
