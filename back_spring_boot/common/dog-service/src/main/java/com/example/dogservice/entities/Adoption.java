@@ -1,9 +1,11 @@
 package com.example.dogservice.entities;
 
+import com.example.dogservice.enums.StateDog;
+import com.example.dogservice.enums.Status;
 import lombok.*;
 
 import javax.persistence.*;
-import java.sql.Date;
+
 
 @Table(name= "Adoption")
 @Entity
@@ -13,9 +15,25 @@ public class Adoption {
     @JoinColumn(name = "idDog", referencedColumnName = "idDog", insertable = false, updatable = false)
     private Long idDog;
     private Long idUser;
-
+    @Column(columnDefinition = "varchar(25) default 'WAITING'")
+    @Enumerated(EnumType.STRING)
+    private Status status;
     public Long getIdDog() {
         return idDog;
+    }
+
+    public Adoption(Long idDog, Long idUser, Status status) {
+        this.idDog = idDog;
+        this.idUser = idUser;
+        this.status = status;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
     }
 
     @Override

@@ -12,6 +12,6 @@ public interface AdoptionRepository extends JpaRepository<Adoption, Long> {
 
        List<Adoption> findAll();
        List<Adoption> findByIdUser(Long  idUser);
-
+       
 
 }

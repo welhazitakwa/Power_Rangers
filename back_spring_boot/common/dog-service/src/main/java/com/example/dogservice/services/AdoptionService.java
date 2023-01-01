@@ -19,7 +19,7 @@ public class AdoptionService {
 
         return repo.findAll();
     }
-    public List<Adoption> findByIdDog(Long  idUser)
+    public List<Adoption> findByIdUser(Long  idUser)
     {
         return repo.findByIdUser(idUser);
     }
