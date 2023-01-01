@@ -66,6 +66,7 @@ public class DogController {
             request.setIdUser(item.getIdUser());
             request.setStatus(item.getStatus());
             request.setDogPart(service.getById(item.getIdDog()));
+            request.setUserPart();
             requestsList.add(request);
         }
 

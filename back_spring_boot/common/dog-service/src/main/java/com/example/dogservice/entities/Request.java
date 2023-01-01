@@ -48,12 +48,11 @@ public class Request {
         this.categoryID = dog.getCategoryID();
     }
     public void setUserPart() {
-        this.idUser = idUser;
-        this.email = email;
-        this.nameUser = nameUser;
-        this.password = password;
-        this.imageUser = imageUser;
-        this.municpalite = municpalite;
+        this.email = "email";
+        this.nameUser = "nameUser";
+        this.password = "password";
+        this.imageUser = "imageUser";
+        this.municpalite = "municpalite";
        }
 
 }
