@@ -2,11 +2,14 @@ package com.example.dogservice.controller;
 
 import com.example.dogservice.entities.Adoption;
 import com.example.dogservice.entities.Dog;
+import com.example.dogservice.entities.Request;
 import com.example.dogservice.services.AdoptionService;
 import com.example.dogservice.services.DogService;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.context.request.RequestScope;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -50,6 +53,25 @@ public class DogController {
     ) {
         return service.findByName(size, nb, name);
     }
+    @GetMapping("/Adoption/List")
+    public List<Request> findByContainingName(@RequestParam("idUser") long idUser) {
+
+        List<Adoption> adoptionList = serviceAdoption.findByIdUser(idUser);
+        List<Request> requestsList = new ArrayList<Request>();
+        Request request ;
+        Dog dog;
+        for (Adoption item : adoptionList) {
+            request =  new Request();
+            dog =  new Dog();
+            request.setIdUser(item.getIdUser());
+            request.setStatus(item.getStatus());
+            request.setDogPart(service.getById(item.getIdDog()));
+            requestsList.add(request);
+        }
+
+        return requestsList;
+    }
+
 
     @PostMapping("/add")
     public Dog save(@RequestBody Dog dog) {
