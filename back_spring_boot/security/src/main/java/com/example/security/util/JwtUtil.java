@@ -60,15 +60,14 @@ public class JwtUtil {
     }
 
 
-    public String generateJwtToken(Authentication authentication) {
+    public String generateJwtToken(UserDetails authentication) {
 
-        UserDetails userPrincipal = (UserDetails) authentication.getPrincipal();
-        System.out.println("mak hachtek bel username " + userPrincipal.getUsername());
+        System.out.println("mak hachtek bel username " + authentication.getUsername());
         HashMap<String, Object> hm = new HashMap<>();
-        hm.put("roles", userPrincipal.getAuthorities().stream().map(GrantedAuthority::getAuthority).collect(Collectors.toList()));
+        hm.put("roles", authentication.getAuthorities().stream().map(GrantedAuthority::getAuthority).collect(Collectors.toList()));
         return Jwts.builder()
                 .setClaims(hm)
-                .setSubject((userPrincipal.getUsername()))
+                .setSubject(authentication.getUsername())
                 .setIssuedAt(new Date())
                 .setExpiration(new Date((new Date()).getTime() + tokenValidity))
                 .signWith(SignatureAlgorithm.HS256, jwtSecret)

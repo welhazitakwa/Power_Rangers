@@ -47,6 +47,10 @@ export class UserService {
     return this.http.put<any>("http://localhost:8083/auth/employee", formData)
   }
 
+  checkEmailExist(email: String):Promise<any> {
+    return this.http.get("http://localhost:8083/auth/employee/email/" + email).toPromise()
+  }
+
   getMuniciaplites() : Observable<any> {
     return this.http.get<any>("http://localhost:8083/municipalites")
   }
@@ -56,6 +60,10 @@ export class UserService {
   }
 
   getUsersByRoleAndMuni(role: String) {
-    return this.http.get<any>("http://localhost:8083/auth/employees/roles/"+role);
+    return this.http.get<any>("http://localhost:8083/auth/employee/roles/"+role+"/"+localStorage.getItem("Token"));
+  }
+
+  getMuniciaplitesUser():Observable<any> {
+    return this.http.get<any>("http://localhost:8083/auth/user/")
   }
 }

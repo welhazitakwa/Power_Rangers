@@ -22,8 +22,8 @@
                   <div class="col-lg-6">
                     <div class="form-group">
                       <label class="form-control-label" for="nameMunicipalite">Nom de la municipalite</label>
-                      <input type="text" id="nameMunicipalite" 
-                      class="form-control form-control-alternative" 
+                      <input type="text" id="nameMunicipalite"
+                      class="form-control form-control-alternative"
                       placeholder="Entrez le nom"
                       minlength="5"
                       required [(ngModel)]="municipalite.nameMunicipalite"
@@ -42,9 +42,9 @@
                   <div class="col-lg-6">
                     <div class="form-group">
                       <label class="form-control-label" for="localisationMunicipalite">Localisation</label>
-                      <input type="text" 
-                      id="localisationMunicipalite" 
-                      class="form-control form-control-alternative" 
+                      <input type="text"
+                      id="localisationMunicipalite"
+                      class="form-control form-control-alternative"
                       placeholder="Entrez une Localisation"
                       required [(ngModel)]="municipalite.localisationMunicipalite"
                       #loc="ngModel"
@@ -55,21 +55,21 @@
                          </div>
                     </div>
                   </div>
-                
+
                 </div>
               </div>
               <hr class="my-4" />
               <!-- Address -->
-              
+
               <!-- Description -->
-            <a routerLink=""><button (click)="savemunicipalite()" type="submit" class="btn btn-primary ">Ajouter</button></a>
+            <button (click)="savemunicipalite()" type="submit" class="btn btn-primary ">
+              Ajouter</button>
             </form>
           </div>
         </div>
       </div>
 
 
-  
 
 
 
@@ -90,5 +90,6 @@
 
 
 
- 
+
+
 </div>

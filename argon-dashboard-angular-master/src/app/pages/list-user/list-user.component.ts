@@ -18,7 +18,7 @@ export class ListUserComponent implements OnInit {
 
   public getEmployees(): void {
     if (localStorage.getItem("Roles") == "[ADMIN]") {
-
+      console.log("we are ready to get users mayor ");
     this.UserService.getUserByRole("MAIRE").subscribe(
       (response: Employee[]) => {
         this.users = response;
@@ -62,5 +62,4 @@ export class ListUserComponent implements OnInit {
       }
     );
   }
-
 }

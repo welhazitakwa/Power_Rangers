@@ -21,7 +21,17 @@ public class User {
     private String password;
     private String image;
     private String municpalite;
+    @Column(columnDefinition = "boolean default false")
+    private Boolean enabled;
+
+    @Column(name = "verification_code")
+    private String verificationCode;
+
+    @Column(name = "verification_code_reset")
+    private String verificationCodeReset;
     @ManyToOne
     @JoinColumn(name = "roles_id")
     private Role roles;
+
+    private Long user_id;
 }

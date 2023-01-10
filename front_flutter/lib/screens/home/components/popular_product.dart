@@ -33,7 +33,7 @@ import '../../details/components/custom_app_bar.dart';
  // List<dynamic> _chiens = [];
 //Future<void> async {
     Future<List<Chien>> fetchchiens() async {
-    Response response = await Dio().get('http://192.168.1.18:8090/chiens');
+    Response response = await Dio().get('http://localhost:8091/chiens');
     return (response.data as List).map((x) => Chien.fromJson(x)).toList();
   }
 
@@ -87,8 +87,8 @@ class PopularProducts extends StatelessWidget {
                       return Card(
                       margin: const EdgeInsets.all(10),
                       color: const Color.fromARGB(255, 228, 221, 230),
-                      shadowColor: Colors.blueGrey,
-                      elevation: 10,
+                      // shadowColor: Colors.blueGrey,
+                      // elevation: 10,
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: <Widget>[

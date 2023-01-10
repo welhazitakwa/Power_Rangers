@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { FileHandle } from './file-handle.model';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-add-chien',
@@ -13,7 +14,7 @@ import { FileHandle } from './file-handle.model';
 export class AddChienComponent implements OnInit {
   registerForm! : FormGroup
   submitted = false
-    
+
   chien={
     nameChien:'',
     gender:'',
@@ -24,9 +25,9 @@ export class AddChienComponent implements OnInit {
     description:''
       }
 
-     
+
   constructor(private chienService: ChienService,
-    private formBuilder : FormBuilder ,private sanitizer: DomSanitizer) { }
+    private formBuilder : FormBuilder ,private sanitizer: DomSanitizer, private route : Router) { }
 
   get nameChien() {
     console.log(this.registerForm.get('chien.nameChien'))
@@ -34,12 +35,12 @@ export class AddChienComponent implements OnInit {
   }
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
-      
+
       chien: this.formBuilder.group({
         nameChien:new FormControl('', [Validators.required])
         // ['', [Validators.required, Validators.minLength(2)]]
       })
-      
+
     })
   }
 
@@ -61,11 +62,12 @@ export class AddChienComponent implements OnInit {
 
         console.log(response);
         this.submitted=true;
+        this.route.navigateByUrl("/tables")
       },
       error=> {
         console.log(error);
       }
-      
+
     );
   }
 
@@ -82,8 +84,8 @@ export class AddChienComponent implements OnInit {
     }
   }
 
-  
-  
+
+
 
 
 
@@ -92,7 +94,7 @@ onSubmit(){
   if (this.registerForm.invalid) {return}
   alert ("success")
 
-  
+
 }
 
 
@@ -111,5 +113,5 @@ onSubmit(){
         this.chien.image.push(fileHandle);
       }
     }*/
-   
+
 }

@@ -2,7 +2,7 @@
     <app-navbar></app-navbar>
     <app-sidebar></app-sidebar>
   </div>
-  
+
   <div class="container">
     <div class="row align-items-center">
         <div class="col-xl-8 order-xl-1">
@@ -38,7 +38,7 @@
                                <div class="alert " *ngIf="nameChien.touched && !nameChien.valid">
                                 <span class="error" *ngIf="nameChien.errors.required"><i class="fa fa-exclamation-circle"></i> required  </span>
                                 <span class="error" *ngIf="nameChien.errors.minlength"><i class="fa fa-exclamation-circle"></i> le nom doit contenir 5 caractéres au minimum </span>
-                               
+
                                </div>
                                <!--
                                <span ng-show="myForm.$submitted || myForm.nameChien.$dirty">
@@ -48,8 +48,8 @@
                             </div>
 
                                 </div>
-                          
-                          
+
+
                           <div class="col-lg-6">
                             <div class="form-group">
                               <label class="form-control-label" for="image">Image</label>
@@ -59,15 +59,15 @@
                               (change)="processFile(imageInput)">
 //(change)="onFileSelected($event)"-->
                          <input id="image" class="form-control form-control-alternative "
-                              
-                               type="text" #selectImage 
-                              
+
+                               type="text" #selectImage
+
                               placeholder="Lien de l'image" [(ngModel)]="chien.image">
                             </div>
                           </div>
-                          
-                          
-                          
+
+
+
                           <!--
                         <div class="col-lg-6">
                           <div class="form-group">
@@ -79,36 +79,36 @@
                        </div> -->
                       </div>
                     </div>
-                    
+
                     <div class="pl-lg-4">
                       <div class="row">
-                       
+
                       </div>
                       <div class="row">
                         <div class="col-lg-4">
                           <div class="form-group">
                             <label class="form-control-label" for="gender">Genre</label>
-                            <select 
-                            [(ngModel)]='chien.gender' 
+                            <select
+                            [(ngModel)]='chien.gender'
                             #gender="ngModel"
                             required
                             name="dropdownOption" id="dropdownOption" class='form-control'>
                               <option class="form-control" selected >Male</option>
                               <option class="form-control" value="Female">Female</option>
-                              
+
                               </select>
                               <div class="alert " *ngIf="gender.touched && !gender.valid">
                                 <span class="error" *ngIf="gender.errors.required"><i class="fa fa-exclamation-circle"></i> required  </span>
-                                
+
                                </div>
-                               
+
                               </div>
                         </div>
                         <div class="col-lg-4">
                           <div class="form-group">
                             <label class="form-control-label" for="color">Couleur</label>
-                           <input type="text" id="color" 
-                            class="form-control form-control-alternative" 
+                           <input type="text" id="color"
+                            class="form-control form-control-alternative"
                             placeholder="Couleur" [(ngModel)]="chien.color" >
                           </div>
                         </div>
@@ -129,11 +129,11 @@
                     </div>
                     <hr class="my-4" />
                     <!-- Description -->
-                    
+
                     <div class="pl-lg-4">
                       <div class="form-group">
                         <label>Description</label>
-                        <textarea rows="4" class="form-control form-control-alternative" 
+                        <textarea rows="4" class="form-control form-control-alternative"
                         placeholder="A few words about you the dog ..."
                         [(ngModel)]="chien.description"
                         #desc="ngModel" required minlength="20"
@@ -145,35 +145,34 @@
                       </div>
 
                     </div>
-                    <a routerLink="/tables"><button (click)="savechien()" type="submit" class="btn btn-primary " >Ajouter</button></a>
-          
+                    <button (click)="savechien()" type="submit" class="btn btn-primary " >Ajouter</button>
+
                   </form>
             </div>
           </div>
         </div>
-  
-  
-    
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   </div>
-  

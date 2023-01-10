@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="de8df514-275c-485b-8d5f-f2bd0896b402" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/Back_Node_02.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/common/user-rest.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/common/user-rest.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/common/user-verify.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/common/user-verify.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/pages/reset-password/reset-password.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/pages/reset-password/reset-password.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/pages/reset-password/reset-password.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/pages/reset-password/reset-password.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/pages/update-password/update-password.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/pages/update-password/update-password.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/pages/update-password/update-password.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/pages/update-password/update-password.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/pages/verify-account/verify-account.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/pages/verify-account/verify-account.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/pages/verify-account/verify-account.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/pages/verify-account/verify-account.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/assets/employee/0/Screenshot from 2023-01-01 13-10-51.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/assets/employee/0/Screenshot from 2023-01-08 23-01-00.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/assets/employee/0/Screenshot from 2023-01-09 11-20-17.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/assets/employee/0/Screenshot from 2023-01-09 12-47-05.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/assets/employee/0/Screenshot from 2023-01-09 21-52-04.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/assets/employee/2/Screenshot from 2022-12-31 22-23-16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/assets/employee/29/Screenshot from 2022-12-31 23-05-06.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/assets/employee/3/Screenshot from 2023-01-01 13-10-51.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/assets/employee/54/Screenshot from 2023-01-09 12-47-05.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/assets/employee/54/Screenshot from 2023-01-09 21-05-17.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/assets/employee/55/Screenshot from 2023-01-09 11-20-17.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/assets/employee/55/Screenshot from 2023-01-09 21-05-17.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/assets/employee/56/Screenshot from 2022-12-30 09-15-51.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/assets/employee/56/Screenshot from 2023-01-01 13-10-51.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/assets/employee/56/Screenshot from 2023-01-09 12-47-05.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/assets/employee/56/Screenshot from 2023-01-09 21-52-04.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/assets/employee/57/Screenshot from 2023-01-09 21-52-04.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/assets/employee/58/Screenshot from 2023-01-09 21-52-04.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/assets/employee/6/Screenshot from 2023-01-08 23-01-00.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../back_spring_boot/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../back_spring_boot/security/src/main/java/com/example/security/model/TokenDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../back_spring_boot/security/src/main/java/com/example/security/model/UserVerify.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../back_spring_boot/security/src/main/java/com/example/security/model/userRest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front_flutter/lib/screens/resetPassword/components/body.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front_flutter/lib/screens/resetPassword/components/reset_form.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front_flutter/lib/screens/resetPassword/components/user.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front_flutter/lib/screens/resetPassword/reset_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chien.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chien.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chien.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/chien.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/app.routing.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/app.routing.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/components/sidebar/sidebar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/components/sidebar/sidebar.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/pages/add-chien/add-chien.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/pages/add-chien/add-chien.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/pages/add-chien/add-chien.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/pages/add-chien/add-chien.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/pages/add-municipalite/add-municipalite.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/pages/add-municipalite/add-municipalite.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/pages/add-municipalite/add-municipalite.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/pages/add-municipalite/add-municipalite.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/pages/dashboard-veterinaire/dashboard-veterinaire.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/pages/dashboard-veterinaire/dashboard-veterinaire.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/pages/dashboard/dashboard.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/pages/dashboard/dashboard.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/pages/dashboard/dashboard.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/pages/dashboard/dashboard.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/pages/details-user/details-user.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/pages/details-user/details-user.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/pages/list-user/list-user.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/pages/list-user/list-user.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/pages/list-user/list-user.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/pages/list-user/list-user.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/pages/list-user/list-user.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/pages/list-user/list-user.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/pages/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/pages/login/login.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/pages/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/pages/login/login.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/pages/tables/tables.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/pages/tables/tables.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/pages/update-etat/update-etat.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/pages/update-etat/update-etat.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/pages/update-municipalite/update-municipalite.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/pages/update-municipalite/update-municipalite.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/pages/update-municipalite/update-municipalite.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/pages/update-municipalite/update-municipalite.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/pages/user-form/user-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/pages/user-form/user-form.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/pages/user-profile/user-profile.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/pages/user-profile/user-profile.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/services/authentication.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/services/authentication.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/services/chien.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/services/chien.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/services/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../argon-dashboard-angular-master/src/app/services/user.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back_spring_boot/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../back_spring_boot/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back_spring_boot/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../back_spring_boot/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back_spring_boot/cloud-config" beforeDir="false" afterPath="$PROJECT_DIR$/../back_spring_boot/cloud-config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back_spring_boot/common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../back_spring_boot/common/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back_spring_boot/config-server/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../back_spring_boot/config-server/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back_spring_boot/gateway-service/src/main/java/com/example/gatewayservice/GatewayServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_spring_boot/gateway-service/src/main/java/com/example/gatewayservice/GatewayServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back_spring_boot/gateway-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../back_spring_boot/gateway-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back_spring_boot/security/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../back_spring_boot/security/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back_spring_boot/security/src/main/java/com/example/security/SecurityApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_spring_boot/security/src/main/java/com/example/security/SecurityApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back_spring_boot/security/src/main/java/com/example/security/Static/fileUpload.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_spring_boot/security/src/main/java/com/example/security/Static/fileUpload.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back_spring_boot/security/src/main/java/com/example/security/configuration/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_spring_boot/security/src/main/java/com/example/security/configuration/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back_spring_boot/security/src/main/java/com/example/security/configuration/userDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_spring_boot/security/src/main/java/com/example/security/configuration/userDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back_spring_boot/security/src/main/java/com/example/security/controller/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_spring_boot/security/src/main/java/com/example/security/controller/AuthenticationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back_spring_boot/security/src/main/java/com/example/security/entity/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_spring_boot/security/src/main/java/com/example/security/entity/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back_spring_boot/security/src/main/java/com/example/security/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_spring_boot/security/src/main/java/com/example/security/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back_spring_boot/security/src/main/java/com/example/security/model/UserModeFlutter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back_spring_boot/security/src/main/java/com/example/security/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_spring_boot/security/src/main/java/com/example/security/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back_spring_boot/security/src/main/java/com/example/security/service/SecurityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_spring_boot/security/src/main/java/com/example/security/service/SecurityService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back_spring_boot/security/src/main/java/com/example/security/util/JwtUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_spring_boot/security/src/main/java/com/example/security/util/JwtUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back_spring_boot/security/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../back_spring_boot/security/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_flutter/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../front_flutter/android/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_flutter/lib/constants.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../front_flutter/lib/constants.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_flutter/lib/helper/storage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../front_flutter/lib/helper/storage.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_flutter/lib/routes.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../front_flutter/lib/routes.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_flutter/lib/screens/forgot_password/components/body.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../front_flutter/lib/screens/forgot_password/components/body.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_flutter/lib/screens/home/components/popular_product.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../front_flutter/lib/screens/home/components/popular_product.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_flutter/lib/screens/profile/components/body.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../front_flutter/lib/screens/profile/components/body.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_flutter/lib/screens/sign_in/components/sign_form.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../front_flutter/lib/screens/sign_in/components/sign_form.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_flutter/macos/Flutter/GeneratedPluginRegistrant.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../front_flutter/macos/Flutter/GeneratedPluginRegistrant.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_flutter/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../front_flutter/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_flutter/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../front_flutter/pubspec.yaml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2Jefs6ZhLWilDtwrEtxygsCB0Sa" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/mortadha/Power_Rangers1/Back_Node_02&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;MTConfigurable&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/home/mortadha/Power_Rangers1/Back_Node_02/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="de8df514-275c-485b-8d5f-f2bd0896b402" name="Changes" comment="" />
+      <created>1672443673414</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1672443673414</updated>
+      <workItem from="1672443674588" duration="876000" />
+      <workItem from="1672489714221" duration="1671000" />
+      <workItem from="1673186322023" duration="345000" />
+      <workItem from="1673258828000" duration="612000" />
+      <workItem from="1673259559649" duration="1408000" />
+      <workItem from="1673298732378" duration="1418000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

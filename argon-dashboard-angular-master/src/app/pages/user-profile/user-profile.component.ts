@@ -45,7 +45,7 @@ export class UserProfileComponent implements OnInit {
 
 
   submit() {
-    console.log(this.userProfile)
+    console.log("the form contains " + this.userProfile)
     if (this.userProfile.invalid) {
       this.userProfile.markAllAsTouched()
     } else {
@@ -54,7 +54,7 @@ export class UserProfileComponent implements OnInit {
       this.user.password = this.userProfile.get('password').value
       formData.append('employee', JSON.stringify(this.user))
       this.userService.updateProfile(formData).subscribe()
-      this.route.navigateByUrl("/user-profile");
+      this.getUser();
     }
   }
 }

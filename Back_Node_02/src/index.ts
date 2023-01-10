@@ -6,7 +6,7 @@ import mongoose from "mongoose";
 import bodyParser from "body-parser"
 
 
-const PORT = process.env.PORT || 8090;
+const PORT = process.env.PORT || 8091;
 const eurekaHelper = require('./eureka-helper');
 
 

@@ -11,7 +11,7 @@ import { MunicipaliteService } from 'src/app/services/municipalite.service';
 export class UpdateMunicipaliteComponent implements OnInit {
 
   municipalite={
-    
+
     nameMunicipalite:'',
     localisationMunicipalite:'',
       }
@@ -22,7 +22,7 @@ export class UpdateMunicipaliteComponent implements OnInit {
   id: any;
 
 
-  constructor(private municipaliteService: MunicipaliteService, private activatedRoute: ActivatedRoute, private fb: FormBuilder, private routes :Router) { 
+  constructor(private municipaliteService: MunicipaliteService, private activatedRoute: ActivatedRoute, private fb: FormBuilder, private route :Router) {
   }
 
   ngOnInit(): void {
@@ -40,12 +40,12 @@ export class UpdateMunicipaliteComponent implements OnInit {
       response =>{
 
         console.log(response);
-        
+
       },
       error=> {
         console.log(error);
       }
-      
+
     );
 
     //this.message='';
@@ -58,12 +58,12 @@ export class UpdateMunicipaliteComponent implements OnInit {
 
     this.currentMunicipalite =response;
     console.log(response);
-    
+
   },
   error=> {
     console.log(error);
   }
-  
+
 );
   }
 
@@ -74,12 +74,12 @@ export class UpdateMunicipaliteComponent implements OnInit {
       response =>{
       this.municipalites=response;
         console.log(response);
-        
+
       },
       error=> {
         console.log(error);
       }
-      
+
     );
   }*/
 
@@ -101,14 +101,15 @@ export class UpdateMunicipaliteComponent implements OnInit {
 
         console.log(response);
         //this.message="the municipalite was update successfully";
-        
+        this.route.navigateByUrl("/dashboard")
+
       },
       error=> {
         console.log(error);
       }
-      
+
     );
-    this.routes.navigate(['/update-municipalite']);
+    // this.route.navigate(['/update-municipalite']);
   }
 
 }

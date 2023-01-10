@@ -25,6 +25,9 @@ import {
   GoogleLoginProvider,
   FacebookLoginProvider, SocialLoginModule, SocialAuthServiceConfig
 } from 'angularx-social-login';
+import { VerifyAccountComponent } from './pages/verify-account/verify-account.component';
+import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
+import { UpdatePasswordComponent } from './pages/update-password/update-password.component';
 
 @NgModule({
   imports: [
@@ -50,6 +53,9 @@ import {
     DashboardVeterinaireComponent,
     UpdateEtatComponent,
     DetChienVeterComponent,
+    VerifyAccountComponent,
+    ResetPasswordComponent,
+    UpdatePasswordComponent,
 
   ],
   providers: [

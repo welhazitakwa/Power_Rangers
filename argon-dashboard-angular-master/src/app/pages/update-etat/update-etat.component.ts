@@ -32,12 +32,12 @@ export class UpdateEtatComponent implements OnInit {
       response =>{
 
         console.log(response);
-        
+
       },
       error=> {
         console.log(error);
       }
-      
+
     );
 
     //this.message='';
@@ -47,30 +47,30 @@ export class UpdateEtatComponent implements OnInit {
   getChien(id){
     this.chienService.get(id).subscribe(
     response =>{
- 
+
      this.currentChien =response;
      console.log(response);
-     
+
    },
    error=> {
      console.log(error);
    }
-   
+
  );
    }
 
 
    updatechien(){
      this.chienService.update(this.id,this.currentChien).subscribe(
-       response =>{ 
-         console.log(response); 
+       response =>{
+         console.log(response);
        },
        error=> {
          console.log(error);
        }   );
      //this.routes.navigate(['/update-chien']);
    }
- 
+
 
    updatestate(){
     Swal.fire({
@@ -86,6 +86,7 @@ export class UpdateEtatComponent implements OnInit {
     }).then((result)=>{
       if(result.value){
         this.currentChien.state = true
+        // this.chienService.update(this.currentChien.id, this.currentChien)
         Swal.fire(
           'Prêt pour adoption !!!',
            "l'état sanitaire de ce chien est mise à jour avec succées" ,
@@ -93,10 +94,10 @@ export class UpdateEtatComponent implements OnInit {
                   );}
             else if (result.dismiss === Swal.DismissReason.cancel){
               Swal.fire('Encore malade',"Ce chien n'est pas prêt pour adoption",'error');
-              
+
             }
-    }) 
-      
+    })
+
    }
 
 

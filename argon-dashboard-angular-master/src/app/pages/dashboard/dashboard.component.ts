@@ -23,17 +23,22 @@ export class DashboardComponent implements OnInit {
   municipalites: any[];
   public clicked: boolean = true;
   public clicked1: boolean = false;
-
+  public yes: boolean = false
   currentMunicipalite=null;
   message="";
 
-  
-constructor(private http: HttpClient,private municipaliteService: MunicipaliteService, route: ActivatedRoute, router: Router ){
+
+constructor(private http: HttpClient,private municipaliteService: MunicipaliteService, route: ActivatedRoute, private router: Router ){
 
 this.municipalites=[];
 }
   ngOnInit() {
-    this.loadMunicipalites() ;
+    if (localStorage.getItem("Roles") == "[ADMIN]") {
+      this.loadMunicipalites() ;
+      this.yes = true
+    } else {
+      this.router.navigateByUrl("/users")
+    }
     this.message="";
     //this.getMunicipalite(this.route.snapshot.paramMap.get('id'));
   }
@@ -50,26 +55,26 @@ this.municipalites=[];
       error=> {
         console.log(error);
       }
-      
+
     );
   }
 
 
- 
 
-  
-  
- 
+
+
+
+
   loadMunicipalites(){
-    
+
     this.http
-     .get('http://localhost:8090/municipalites')
+     .get('http://localhost:8091/municipalites')
      .subscribe((result:any)=>{
        this.municipalites = result ;
       //console.log(this.municipalites)
-       
+
     });
-    
+
   }
 
   retriveMunicipalite(){
@@ -77,7 +82,7 @@ this.municipalites=[];
     .subscribe((result:any)=>{
       this.municipalites = result ;
      //console.log(this.municipalites)
-      
+
    });
   }
 
@@ -92,7 +97,7 @@ this.municipalites=[];
 
   deleteMunicipalite(g,name){
     if(confirm("Voulez-vous Confirmez la supression de la municipalité : "+name)) {
-    
+
     this.municipaliteService.delete(g)
     .subscribe(
       response =>{
@@ -104,9 +109,10 @@ this.municipalites=[];
         console.log(error);
       }
     )
-    //this.loadMunicipalites();
-    this.reloadCurrentPage();
-  }
+    // this.reloadCurrentPage();
+      this.loadMunicipalites()
+    //   this.router.navigateByUrl("/dashboard")
+    }
   }
 
 }

@@ -7,10 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserModeFlutter {
-    private int id;
+public class userRest {
     private String email;
-    private String name;
-    private String municipalite;
     private String password;
+    private String code;
 }

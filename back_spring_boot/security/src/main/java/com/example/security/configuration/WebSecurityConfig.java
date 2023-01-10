@@ -74,8 +74,8 @@ public class WebSecurityConfig {
 
         http.authorizeRequests().antMatchers("/auth/login/**").permitAll();
         http.authorizeRequests().antMatchers("/auth/register/**").permitAll();
-        http.authorizeRequests().antMatchers("/auth/employee/**").hasAnyAuthority("ADMIN", "MAIRE");
-
+        http.authorizeRequests().antMatchers("/auth/register/**").permitAll();
+        http.authorizeRequests().anyRequest().authenticated();
 //        http.authenticationProvider(daoAuthenticationProvider()).authorizeRequests().anyRequest().authenticated();
 //        http.addFilter(new JwtAuthentication(authenticationManager(http.getSharedObject(AuthenticationConfiguration.class))));
 

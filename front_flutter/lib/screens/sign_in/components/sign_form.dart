@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:shop_app/components/custom_surfix_icon.dart';
 import 'package:shop_app/components/form_error.dart';
 import 'package:shop_app/helper/keyboard.dart';
@@ -24,6 +25,21 @@ class _SignFormState extends State<SignForm> {
   String? email;
   String? password;
   bool? remember = false;
+
+  @override
+  void initState() {
+    logout();
+    super.initState();
+  }
+
+  Future<void> logout() async {
+    final id = await googleSignIn.currentUser?.id;
+    print("the value of id of user login with google is " + id.toString());
+    if (id != null)
+      await googleSignIn.signOut();
+
+  }
+
   final List<String?> errors = [];
   User user = User("", "", "", "", 0);
   void addError({String? error}) {
@@ -80,7 +96,6 @@ class _SignFormState extends State<SignForm> {
 
   Future<void> saveToken(http.Response res) async {
     await storage.write(key: 'jwt', value: res.headers['authorization']);
-    String token = await storage.read(key: 'jwt') ?? '';
   }
 
   @override
@@ -105,6 +120,40 @@ class _SignFormState extends State<SignForm> {
                 },
               ),
               Text("Remember me"),
+              TextButton(
+                style: ButtonStyle(
+                  foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),
+                ),
+                onPressed: () async {
+                  try {
+                    final GoogleSignInAccount? googleUser = await googleSignIn.signIn();
+                    print("the value of response is " + googleUser.toString());
+                    final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
+                    print("the value of token is " + googleAuth!.idToken!.toString());
+                    try {
+                      var response = await http.post(
+                        Uri.parse("http://localhost:8083/auth/login/google"),
+                          headers: <String, String>{
+                            'Content-Type': 'application/json; charset=UTF-8',
+                          },
+                          body: jsonEncode(<String, String>{
+                            'token': googleAuth!.idToken!.toString(),
+                          })
+                      );
+                      print("the value of response is " + response.body);
+                      if (response.statusCode == 200) {
+                        await saveToken(response);
+                        Navigator.pushNamed(context, LoginSuccessScreen.routeName);
+                      }
+                    } catch(error) {
+                      print("the value of error iss " + error.toString());
+                    }
+                  } catch(error) {
+                    print("the error is " + error.toString());
+                  }
+                },
+                child: Text('Login with google'),
+              ),
               Spacer(),
               GestureDetector(
                 onTap: () => Navigator.pushNamed(

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
 import { MunicipaliteService } from 'src/app/services/municipalite.service';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -12,17 +13,17 @@ import { MunicipaliteService } from 'src/app/services/municipalite.service';
 export class AddMunicipaliteComponent implements OnInit {
 
   municipalite={
-    
+
 nameMunicipalite:'',
 localisationMunicipalite:'',
   }
 
   submitted= false;
- 
-  constructor(private municipaliteService : MunicipaliteService) { }
+
+  constructor(private municipaliteService : MunicipaliteService, private route: Router) { }
 
   ngOnInit(): void {
-    
+
   }
 
   savemunicipalite(){
@@ -34,15 +35,14 @@ localisationMunicipalite:'',
     this.municipaliteService.create(data)
     .subscribe(
       response =>{
-
         console.log(response);
         this.submitted=true;
       },
       error=> {
         console.log(error);
       }
-      
     );
+    this.route.navigateByUrl("/dashboard")
   }
 
   newMunicipalite(){
@@ -58,6 +58,6 @@ localisationMunicipalite:'',
   }
 
 
-  
+
 
 }

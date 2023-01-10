@@ -13,7 +13,7 @@ var chienSchema = new mongoose_1["default"].Schema({
     image: { type: String, required: true, "default": new Date() },
     state: { type: Boolean, required: true, "default": false },
     description: { type: String, required: true },
-    idchien: { type: Number, required: true, "default": 4 }
+    idchien: { type: Number, required: true, "default": 2 }
 });
 chienSchema.plugin(mongoose_paginate_1["default"]);
 var Chien = mongoose_1["default"].model("Chien", chienSchema);

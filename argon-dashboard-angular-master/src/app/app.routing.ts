@@ -21,6 +21,9 @@ import {ListUserComponent} from './pages/list-user/list-user.component';
 import {DetailsUserComponent} from './pages/details-user/details-user.component';
 import {UserFormComponent} from './pages/user-form/user-form.component';
 import {UserProfileComponent} from './pages/user-profile/user-profile.component';
+import {VerifyAccountComponent} from './pages/verify-account/verify-account.component';
+import {ResetPasswordComponent} from './pages/reset-password/reset-password.component';
+import {UpdatePasswordComponent} from './pages/update-password/update-password.component';
 const routes: Routes =[
   {path: "update-employee/:id", component: UserFormComponent, canActivate: [GuardGuard]},
   {path: "users", component: ListUserComponent, canActivate: [GuardGuard]},
@@ -29,9 +32,13 @@ const routes: Routes =[
   {path: "user-profile", component: UserProfileComponent, canActivate: [GuardGuard]},
   {path: "add-municipalite", component : AddMunicipaliteComponent,
   loadChildren: () => import('src/app/layouts/admin-layout/admin-layout.module').then(m => m.AdminLayoutModule),
-    canActivate: [GuardGuard]
-},
-
+    canActivate: [GuardGuard]},
+  {path: "verify-account", component : VerifyAccountComponent,
+    loadChildren: () => import('src/app/layouts/admin-layout/admin-layout.module').then(m => m.AdminLayoutModule),},
+  {path: "reset", component : ResetPasswordComponent,
+    loadChildren: () => import('src/app/layouts/admin-layout/admin-layout.module').then(m => m.AdminLayoutModule),},
+  {path: "reset-password", component : UpdatePasswordComponent,
+    loadChildren: () => import('src/app/layouts/admin-layout/admin-layout.module').then(m => m.AdminLayoutModule),},
 {path: "dashboard-veterinaire", component : DashboardVeterinaireComponent,
   loadChildren: () => import('src/app/layouts/admin-layout/admin-layout.module').then(m => m.AdminLayoutModule),
   canActivate: [GuardGuard]

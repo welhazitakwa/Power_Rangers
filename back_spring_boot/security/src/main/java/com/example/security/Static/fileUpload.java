@@ -15,7 +15,8 @@ public class fileUpload {
 //        convert the given uri to Path object
         String absolutePath = Paths.get("abc/").toAbsolutePath().toFile().getAbsolutePath();
         String subString = absolutePath.substring(0, absolutePath.lastIndexOf("/"));
-        String subString2 = subString.substring(0, subString.lastIndexOf("/")) + dir;
+        String subString2 = subString.substring(0, subString.lastIndexOf("/")) + "/argon-dashboard-angular-master/src/assets/" + dir;
+        System.out.println("the path is " + subString2);
         Path path = Paths.get(subString2);
 
 //        create the file if not exists

@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   constructor(private authService: AuthenticationService, private route: Router, private authSocial: SocialAuthService) {}
 
   ngOnInit() {
+    this.authService.logout()
     this.loginForm = new FormGroup(
       {
         email: new FormControl(null, [Validators.required, Validators.email]),
@@ -39,7 +40,18 @@ export class LoginComponent implements OnInit, OnDestroy {
             console.log('the value in localStorage' + localStorage.getItem("Token"))
             console.log('3malna login ? ' + localStorage.getItem("Token"))
             if (this.authService.isLogin()) {
-              this.route.navigateByUrl("/dashboard")
+              if (localStorage.getItem("Roles") == "[TECHNICIEN]") {
+                this.route.navigateByUrl("/tables")
+              } else if (localStorage.getItem("Roles") == "[ADMIN]") {
+                  this.route.navigateByUrl("/dashboard")
+              }
+              else if (localStorage.getItem("Roles") == "[VETERINAIRE]")
+                this.route.navigateByUrl("/dashboard-veterinaire")
+              else if(localStorage.getItem("Roles") == "[MAIRE]") {
+                this.route.navigateByUrl("/dashboard")
+              } else {
+                this.route.navigateByUrl("/login");
+              }
             }
           }
         },

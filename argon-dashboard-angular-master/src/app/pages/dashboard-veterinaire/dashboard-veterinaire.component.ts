@@ -19,17 +19,17 @@ export class DashboardVeterinaireComponent implements OnInit {
   }
 
   loadChiens(){
-    
+
     this.http
-     .get('http://localhost:8090/chiens')
+     .get('http://localhost:8091/chiens')
      .subscribe((result:any)=>{
        this.chiens = result ;
       //console.log(this.municipalites)
-       
+
     });
   }
 
-  
+
   reloadCurrentPage() {
     window.location.reload();
    }

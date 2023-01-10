@@ -3,6 +3,8 @@ import {HttpClient, HttpHeaders, HttpResponse} from "@angular/common/http";
 import {UserLogin} from "../common/user-login";
 import {Observable} from "rxjs";
 import {Employee} from "../common/employee";
+import {UserVerify} from '../common/user-verify';
+import {UserRest} from '../common/user-rest';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -49,5 +51,18 @@ export class AuthenticationService {
 
   public deleteEmployee(employeeId: number): Observable<void> {
     return this.httpClient.delete<void>(`http://localhost:8083/auth/employee/delete/${employeeId}`);
+  }
+
+  verify(param: UserVerify) : Observable<HttpResponse<any>> {
+    console.log(param)
+    return this.httpClient.post<any>("http://localhost:8083/auth/login/verify", param)
+  }
+
+  reset(email: String): Observable<HttpResponse<any>> {
+    return this.httpClient.get<any>("http://localhost:8083/auth/login/reset/"+ email)
+  }
+
+  updatePassword(param: UserRest): Observable<HttpResponse<any>> {
+    return this.httpClient.post<any>("http://localhost:8083/auth/login/resetPassword/", param)
   }
 }

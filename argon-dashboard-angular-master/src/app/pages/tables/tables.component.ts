@@ -17,13 +17,13 @@ export class TablesComponent implements OnInit {
   }
 
   loadChiens(){
-    
+
     this.http
-     .get('http://localhost:8090/chiens')
+     .get('http://localhost:8091/chiens')
      .subscribe((result:any)=>{
        this.chiens = result ;
       //console.log(this.municipalites)
-       
+
     });
   }
 
@@ -45,7 +45,7 @@ export class TablesComponent implements OnInit {
         }
       )
       //this.loadMunicipalites();
-      this.reloadCurrentPage();
+      this.loadChiens();
     }
 
   }

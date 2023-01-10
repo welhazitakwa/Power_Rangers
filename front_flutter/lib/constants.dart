@@ -31,9 +31,11 @@ const String kPassNullError = "Please Enter your password";
 const String kShortPassError = "Password is too short";
 const String kMatchPassError = "Passwords don't match";
 const String kNamelNullError = "Please Enter your name";
+const String kCodeNullError = "Please Enter the code";
 const String kMunicipalitelNullError = "Please Enter your location";
 const String kPhoneNumberNullError = "Please Enter your phone number";
 const String kAddressNullError = "Please Enter your address";
+const String userNotFound = "User not found with this email";
 
 final otpInputDecoration = InputDecoration(
   contentPadding:

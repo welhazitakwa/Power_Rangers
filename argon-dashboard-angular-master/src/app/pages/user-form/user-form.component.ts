@@ -32,7 +32,7 @@ export class UserFormComponent implements OnInit {
       (data) => {
         this.roles = data
         if (localStorage.getItem("Roles") == "[ADMIN]") {
-          this.roles = this.roles.splice(3)
+          this.roles = this.roles.splice(3).splice(0, 1)
         } else if (localStorage.getItem("Roles") == "[MAIRE]") {
           this.roles = this.roles.splice(1, 2)
         }
@@ -69,6 +69,7 @@ export class UserFormComponent implements OnInit {
   }
 
   saveUser() {
+    console.log(this.userForm)
     if (this.userForm.status == "INVALID") {
       this.userForm.markAllAsTouched()
     } else {
@@ -100,7 +101,7 @@ export class UserFormComponent implements OnInit {
           }
         )
       }
-      this.route.navigateByUrl("/users")
+      this.route.navigateByUrl("/dashboard")
     }
     // console.log(document.getElementById("email").innerHTML)
     // const data = {

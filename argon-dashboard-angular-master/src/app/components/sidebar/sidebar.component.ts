@@ -43,7 +43,7 @@ export class SidebarComponent implements OnInit {
     } else if (localStorage.getItem("Roles") == "[VETERINAIRE]") {
       ROUTES = ROUTES.splice(2, 1)
     } else if (localStorage.getItem("Roles") == "[MAIRE]") {
-      ROUTES = ROUTES.slice(1, 3)
+      ROUTES = ROUTES.slice(1, 2)
     } else if (localStorage.getItem("Roles") == "[ADMIN]") {
       ROUTES = ROUTES.splice(0, 2)
     }

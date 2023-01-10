@@ -9,7 +9,7 @@ let chienSchema = new mongoose.Schema({
     image:{type:String, required:true, default:new Date()},
     state:{type:Boolean, required:true,default: false},
     description : {type:String , required:true},
-    idchien : {type:Number, required:true,default: 4}
+    idchien : {type:Number, required:true,default: 2}
     });
 
     chienSchema.plugin(mongoosePaginate)

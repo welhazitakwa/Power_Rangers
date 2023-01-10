@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shop_app/helper/storage.dart';
 import 'package:shop_app/screens/sign_in/sign_in_screen.dart';
 import 'package:shop_app/screens/splash/splash_screen.dart';
 import 'edit_profile.dart';
@@ -42,7 +43,8 @@ class Body extends StatelessWidget {
           ProfileMenu(
             text: "Log Out",
             icon: "assets/icons/Log out.svg",
-            press: () {
+            press: () async {
+              await storage.deleteAll();
               Navigator.pushReplacement(context,
                   MaterialPageRoute(builder: (context) => SplashScreen()));
             },

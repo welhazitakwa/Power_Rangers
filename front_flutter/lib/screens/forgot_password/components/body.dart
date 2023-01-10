@@ -3,7 +3,9 @@ import 'package:shop_app/components/custom_surfix_icon.dart';
 import 'package:shop_app/components/default_button.dart';
 import 'package:shop_app/components/form_error.dart';
 import 'package:shop_app/components/no_account_text.dart';
+import 'package:shop_app/screens/resetPassword/reset_screen.dart';
 import 'package:shop_app/size_config.dart';
+import 'package:http/http.dart' as http;
 
 import '../../../constants.dart';
 
@@ -60,6 +62,7 @@ class _ForgotPassFormState extends State<ForgotPassForm> {
             keyboardType: TextInputType.emailAddress,
             onSaved: (newValue) => email = newValue,
             onChanged: (value) {
+              email = value;
               if (value.isNotEmpty && errors.contains(kEmailNullError)) {
                 setState(() {
                   errors.remove(kEmailNullError);
@@ -99,9 +102,27 @@ class _ForgotPassFormState extends State<ForgotPassForm> {
           SizedBox(height: SizeConfig.screenHeight * 0.1),
           DefaultButton(
             text: "Continue",
-            press: () {
+            press: () async {
               if (_formKey.currentState!.validate()) {
                 // Do what you want to do
+                print("the value of email we use is " + email!);
+                try {
+                  var res = await http.get(
+                      Uri.parse("http://localhost:8083/auth/login/reset/" + email!),
+                    headers: <String, String>{
+                      'Content-Type': 'application/json; charset=UTF-8',
+                    },
+                  );
+                  if (res.statusCode == 404) {
+                    setState(() {
+                      errors.add(userNotFound);
+                    });
+                  } else {
+                    Navigator.pushNamed(context, resetPassword.routeName);
+                  }
+                } catch(error) {
+                  print("the error is " + error.toString());
+                }
               }
             },
           ),
